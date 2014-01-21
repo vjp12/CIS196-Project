@@ -1,5 +1,15 @@
 source 'https://rubygems.org'
 
+# Use sqlite in development
+group :development do
+	gem 'sqlite3'
+end
+
+# Use postgresql in production
+group :production do
+	gem 'pg'
+end	
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
