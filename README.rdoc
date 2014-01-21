@@ -1,28 +1,7 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+http://nameless-retreat-7214.herokuapp.com/
 
-Things you may want to cover:
+I was stuck on the last step of the assignment. when trying to perform 'git push heroku master' I continually ran into the error that sqlite3 was not supported by Heroku, whereas Heroku's documentation would suggest otherwise.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
