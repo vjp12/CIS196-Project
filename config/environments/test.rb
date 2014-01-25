@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 HW1::Application.configure do
+=======
+Homework1::Application.configure do
+>>>>>>> 58b03006a0b9234d29345f34992ad00fcc7db347
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's

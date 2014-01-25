@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 HW1::Application.routes.draw do
+=======
+root 'home#index'
+
+Homework1::Application.routes.draw do
+  get "home/index"
+>>>>>>> 58b03006a0b9234d29345f34992ad00fcc7db347
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
