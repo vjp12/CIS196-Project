@@ -2,6 +2,11 @@ source 'https://rubygems.org'
 
 <<<<<<< HEAD
 =======
+
+>>>>>>> 58b03006a0b9234d29345f34992ad00fcc7db347
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.0.2'
+
 # Use sqlite in development
 group :development do
 	gem 'sqlite3'
@@ -10,14 +15,7 @@ end
 # Use postgresql in production
 group :production do
 	gem 'pg'
-end	
-
->>>>>>> 58b03006a0b9234d29345f34992ad00fcc7db347
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
-
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
