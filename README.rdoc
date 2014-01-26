@@ -1,6 +1,6 @@
 == README
-http://nameless-retreat-7214.herokuapp.com/
+http://whispering-harbor-1008.herokuapp.com/
 
-I was stuck on the last step of the assignment. when trying to perform 'git push heroku master' I continually ran into the error that sqlite3 was not supported by Heroku, whereas Heroku's documentation would suggest otherwise.
+Most of this assignment went smoothly for me. My only difficulty was that I changed the name of app from hw1 to homework1, which resulted in merger issues. Initially I didn't understand the merger error message or the <<<<<<< HEAD that appeared in my code. However, once the professor explained what they meaned to me during her office hours solving the issue was relatively simple.
 
 <tt>rake doc:app</tt>.
