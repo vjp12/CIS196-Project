@@ -1,7 +1,7 @@
 == README
 http://whispering-harbor-1008.herokuapp.com/
 
-I learned quite a lot as I replicated the google homepage. Html was fairly easy to pick up. however, CSS a bit of a learnign curve for me. I was initially confused about which type of styling functions I should use to complete my desired actions. Thankfully, Stack Overflow and the plethora of css documentation helped me clear up most of my doubts.
+I learned quite a lot as I replicated the google homepage. Html was fairly easy to pick up. however, CSS a bit of a learnign curve for me. I was initially confused about which type of styling functions I should use to complete my desired actions. Thankfully, Stack Overflow and the plethora of css documentation helped me clear up most of my doubts. One thing that I learned was that different browsiers might require different modifications to functions. For example, the gradient function for Firefox has an -o- prefix while the same function for Chrome had a -webkit- prefix. 
 
 Project Ideas:
 1.) Social Butterfly- An app that monitors the person's facebook account and occassionally reminds them to catch up with people who they are losing touch with.
