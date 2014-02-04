@@ -1,6 +1,19 @@
 == README
 http://whispering-harbor-1008.herokuapp.com/
 
-Most of this assignment went smoothly for me. My only difficulty was that I changed the name of app from hw1 to homework1, which resulted in merger issues. Initially I didn't understand the merger error message or the <<<<<<< HEAD that appeared in my code. However, once the professor explained what they meaned to me during her office hours solving the issue was relatively simple.
+I learned quite a lot as I replicated the google homepage. Html was fairly easy to pick up. however, CSS a bit of a learnign curve for me. I was initially confused about which type of styling functions I should use to complete my desired actions. Thankfully, Stack Overflow and the plethora of css documentation helped me clear up most of my doubts.
+
+Project Ideas:
+1.) Social Butterfly- An app that monitors the person's facebook account and occassionally reminds them to catch up with people who they are losing touch with.
+
+In today's busy world its easy for people to forget about people they haven't seen in a while. This app enables people to prune their social network, keeping their contacts strong for when they need to use them.
+
+2.) Don't Forget It!- An app that helps remember not to forget things. A person sets a reminder not to forget something and if the person person's gps location changes without them turning of the reminder. The person's phone will buzz and a message will pop up reminding them that they left something in their previous location.
+
+Ever worry about leaving a personal belonging in apublic area and losing it forever. Well then this is an app for you. Be reminded of an item that you left behind as soon as you leave the room without it.
+
+3.) Glimmer- An app that enables individuals to submit suggestions to local business and insitutions. In forming them of products that they would like to see or changes they would like to be made.
+
+Sometimes you have a great idea about how a business could make your shopping experience better or about how your college can go about doing something better. This app brings together institutions and the individual in ways that they can both benefit, enabling you to reachout utilize your bright ideas to make a change. 
 
 <tt>rake doc:app</tt>.
