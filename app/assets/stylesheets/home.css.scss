@@ -1,3 +1,66 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.title{
+	position: relative;
+	width: 42%;
+	top: 230px;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#search{
+	position: relative;
+	top: 238px;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 360px;
+}
+
+#button_bar{
+	position: relative;
+	width: 10%;
+	top: 255px;
+	padding-left: 625px;
+}
+
+.button1{
+	display: inline-block;
+	font-weight: bold;
+	height: 45px;
+	line-height: 29px;
+	width: 145px;
+	padding: 0 8px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 2px;
+	border: 1px solid #dcdcdc;
+	border-color: rgba(0,0,0,0.1);
+	color: #444;
+	font-size: 16px;
+	background: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+}
+
+.button2{
+	display: inline-block;
+	font-weight: bold;
+	height: 45px;
+	line-height: 29px;
+	width: 160px;
+	padding: 0 8px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 2px;
+	border: 1px solid #dcdcdc;
+	border-color: rgba(0,0,0,0.1);
+	color: #444;
+	font-size: 16px;
+	background: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+}
+
+.space{
+	padding: 10px;
+}
