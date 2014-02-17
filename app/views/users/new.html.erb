@@ -1,0 +1,35 @@
+<%= form_for(@user) do |f| %>
+	<div class="field">
+		<p>name</p>
+		<%= f.text_field :name%>
+	</div>
+	<div class="field">
+		<p>email</p>
+		<%= f.text_field :email%>
+	</div>
+	<div class="field">
+		<p>password</p>
+		<%= f.text_field :password%>
+	</div>
+	<div class="actions">
+		<%=f.submit%>
+	</div>
+<% end %>
+
+<%= form_for(@company) do |f| %>
+	<div class="field">
+		<p>name</p>
+		<%= f.text_field :name%>
+	</div>
+	<div class="field">
+		<p>email</p>
+		<%= f.text_field :email%>
+	</div>
+	<div class="field">
+		<p>password</p>
+		<%= f.text_field :password%>
+	</div>
+	<div class="actions">
+		<%=f.submit%>
+	</div>
+<% end %>						
