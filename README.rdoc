@@ -1,19 +1,8 @@
 == README
 http://whispering-harbor-1008.herokuapp.com/
 
-I learned quite a lot as I replicated the google homepage. Html was fairly easy to pick up. however, CSS a bit of a learnign curve for me. I was initially confused about which type of styling functions I should use to complete my desired actions. Thankfully, Stack Overflow and the plethora of css documentation helped me clear up most of my doubts. One thing that I learned was that different browsiers might require different modifications to functions. For example, the gradient function for Firefox has an -o- prefix while the same function for Chrome had a -webkit- prefix. 
+The hardest part about this weeks homework was understanding the framework of sql.  After I understood what was going on under the hood I was able to decide on how I was going to implement my project idea. I also encountered a problem with determinming the link address for creating links between my pages. Luckily, when I created my posts controller I used scaffold instead of controller, which filled in most of the information for me. Using the knowledge I gained from Posts view I was able to create the User and Company views.
 
-Project Ideas:
-1.) Social Butterfly- An app that monitors the person's facebook account and occassionally reminds them to catch up with people who they are losing touch with.
-
-In today's busy world its easy for people to forget about people they haven't seen in a while. This app enables people to prune their social network, keeping their contacts strong for when they need to use them.
-
-2.) Don't Forget It!- An app that helps remember not to forget things. A person sets a reminder not to forget something and if the person person's gps location changes without them turning of the reminder. The person's phone will buzz and a message will pop up reminding them that they left something in their previous location.
-
-Ever worry about leaving a personal belonging in apublic area and losing it forever. Well then this is an app for you. Be reminded of an item that you left behind as soon as you leave the room without it.
-
-3.) Glimmer- An app that enables individuals to submit suggestions to local business and insitutions. In forming them of products that they would like to see or changes they would like to be made.
-
-Sometimes you have a great idea about how a business could make your shopping experience better or about how your college can go about doing something better. This app brings together institutions and the individual in ways that they can both benefit, enabling you to reachout utilize your bright ideas to make a change. 
+In the end, I created three tables. The first table User contains the information about the general users. The second table Company contains information about the various company users. The final table is post, which stores the posts that users create that addressed to the various companies in the database.
 
 <tt>rake doc:app</tt>.
