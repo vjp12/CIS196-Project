@@ -1,19 +1,19 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@post) do |f| %>
 	<div class="field">
 		<p>title</p>
 		<%= f.text_field :title%>
 	</div>
 	<div class="field">
-		<p>body</p>
+		<p>Suggestion</p>
 		<%= f.text_field :body%>
 	</div>
-	<div class="field">
+		<div class="field">
 		<p>company</p>
 		<%= f.collection_select :company_id, Company.all, :id, :name%>
 	</div>
 	<div class="field">
 		<p>user</p>
-		<%= f.text_field :user_id, User.all, :id, :name%>
+		<%= f.collection_select :user_id, User.all, :id, :name%>
 	</div>
 	<div class="actions">
 		<%=f.submit%>

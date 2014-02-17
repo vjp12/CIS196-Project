@@ -20,6 +20,14 @@
 	padding-left: 360px;
 }
 
+#bar{
+	position: relative;
+	width: 60%;
+	top: 255px;
+	padding-left: 525px;
+	padding-top: 10px;
+}
+
 #button_bar{
 	position: relative;
 	width: 10%;
@@ -63,9 +71,4 @@
 
 .space{
 	padding: 10px;
-}
-
-.pitch{
-	font-size: 40px;
-	background: green;
 }

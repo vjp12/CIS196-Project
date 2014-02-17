@@ -13,13 +13,18 @@ class UsersController < ApplicationController
   end	
 
   def index
-  		@users=User.all
+  	@users=User.all
   end
 
   def edit
+  	@user = User.find(params[:id])
   end
 
   def delete
+  	@post.destroy
+    respond_to do |format|
+      format.html { redirect_to posts_url }
+    end
   end
 
   private

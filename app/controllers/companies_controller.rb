@@ -4,12 +4,21 @@ class CompaniesController < ApplicationController
   end
 
   def index
-  	@companies = User,all
+  	@companies = Company.all
   end
+
+  def create
+  	@company = Company.new(company_params)
+  	if @company.save
+  		redirect_to companies_path
+  	else
+  		render 'new'
+  	end		
+  end	
 
   private
 
   def user_params
-  	params.require(:user).permit(:name, :email, :password)
+  	params.require(:company).permit(:name, :email, :password)
   end	
 end

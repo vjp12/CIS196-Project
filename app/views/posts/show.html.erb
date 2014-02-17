@@ -6,23 +6,18 @@
 </p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>Suggestion:</strong>
   <%= @post.body %>
 </p>
 
 <p>
-  <strong>Text:</strong>
-  <%= @post.text %>
-</p>
-
-<p>
   <strong>Company:</strong>
-  <%= @post.company %>
+  <%= @post.company.name %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @post.user %>
+  <%= @post.user.name %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
