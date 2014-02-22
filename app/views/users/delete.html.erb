@@ -1,2 +1,14 @@
-<h1>Users#delete</h1>
-<p>Find me in app/views/users/delete.html.erb</p>
+<table>
+	<tr>
+		<td>name</td>
+		<td>email</td>
+	</tr>
+	<% @users.each do |user| %>
+	<tr>
+		<td><%= user.name %></td>
+		<td><%= user.email %></td>
+	</tr>
+	<% end %>	
+</table>		
+<p></p>
+<%= link_to 'Home', root_path %>

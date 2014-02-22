@@ -1,8 +1,6 @@
 == README
 http://whispering-harbor-1008.herokuapp.com/
 
-The hardest part about this weeks homework was understanding the framework of sql.  After I understood what was going on under the hood I was able to decide on how I was going to implement my project idea. I also encountered a problem with determinming the link address for creating links between my pages. Luckily, when I created my posts controller I used scaffold instead of controller, which filled in most of the information for me. Using the knowledge I gained from Posts view I was able to create the User and Company views.
-
-In the end, I created three tables. The first table User contains the information about the general users. The second table Company contains information about the various company users. The final table is post, which stores the posts that users create that addressed to the various companies in the database.
+This weeks assignment was fairly easy. The only problems I ran into were syntax errors.
 
 <tt>rake doc:app</tt>.
