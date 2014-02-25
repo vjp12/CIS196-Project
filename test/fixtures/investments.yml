@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_id: 
+  name_id: 
+  stock_id: 
+  share_change: 
+
+two:
+  id_id: 
+  name_id: 
+  stock_id: 
+  share_change: 

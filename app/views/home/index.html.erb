@@ -1,32 +1,15 @@
 <div class= "content">
-	<div class="title">
-		<a href="https://www.google.com/search?q=harriet%20tubman&%7Bgoogle:RLZ%7D%7Bgoogle:originalQueryForSuggestion%7D%7Bgoogle:assistedQueryStats%7D%7Bgoogle:searchFieldtrialParameter%7D%7Bgoogle:bookmarkBarPinned%7D%7Bgoogle:searchClient%7D%7Bgoogle:sourceId%7D%7Bgoogle:instantExtendedEnabledParameter%7D%7Bgoogle:omniboxStartMarginParameter%7Die=%7BinputEncoding%7D&404handler=true"><IMG src="https://www.google.com/logos/doodles/2014/celebrating-harriet-tubman-5662556353986560-hp.jpg"></a>
-	</div>
-
 	<div class="cotent-box">
-		<form action="3" method="Post">
-			<form action="#" method="Post">	
-				<ul>
-					<li id="search">
-						<input id="search_bar" type="text" size="73" style="height:40px;font-size:18pt; border: solid 1px rgba(0,0,0,.15);">
-					</li>
-					<br>
-					<li id="button_bar" if="button1" if="button2">
-						<input class="button1" type="submit" value="Google Search">
-						<a class="space"></a>
-						<input class="button2" type="submit" value="I'm Feeling Lucky">
-					</li>
-				</li>	
-				</ul>	
-			</form>
-		</form>
-
+		<h1 id="title">Basic Trading Program for Investment Clubs</h1>
 		<ul id="bar">
 			<div class="button1">
-				<%= link_to "New Users", new_user_path %>
+				<%= link_to "New Members", new_member_path %>
 			</div>
 			<div class="button1">
-				<%= link_to "New Companies", new_company_path %>
+				<%= link_to "New Stock", new_stock_path %>
+			</div>	
+			<div class="button1">
+				<%= link_to "New Investments", new_investment_path %>
 			</div>	
 			<div class="button1">
 				<%= link_to "New Posts", new_post_path %>
@@ -34,11 +17,14 @@
 		</ul>	
 		<ul id="bar">
 			<div class="button1">
-				<%= link_to "View Users", users_path %>
+				<%= link_to "View Members", members_path %>
 			</div>
 			<div class="button1">
-				<%= link_to "View Companies", companies_path %>
-			</div>	
+				<%= link_to "View Stocks", stocks_path %>
+			</div>
+			<div class="button1">
+				<%= link_to "View Investments", investments_path %>
+			</div>		
 			<div class="button1">
 				<%= link_to "View Posts", posts_path %>
 			</div>	

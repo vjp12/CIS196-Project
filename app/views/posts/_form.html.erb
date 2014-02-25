@@ -23,13 +23,14 @@
     <%= f.label :text %><br>
     <%= f.text_field :text %>
   </div>
-  <div class="field">
-    <%= f.label :company_id %><br>
-    <%= f.text_field :company_id %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <p>stock</p>
+    <%= f.collection_select :stock_id, Stock.all, :id, :name%>
+  </div>
+  <div class="field">
+    <p>member</p>
+    <%= f.collection_select :member_id, Member.all, :id, :name%>
   </div>
   <div class="actions">
     <%= f.submit %>

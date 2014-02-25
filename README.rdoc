@@ -3,4 +3,6 @@ http://whispering-harbor-1008.herokuapp.com/
 
 This weeks assignment was fairly easy. The only problems I ran into were syntax errors.
 
+I have decided to change my app idea to a basic trading program where club leadership can pick a handfull of stocks that members can trade and members can paper trade thoose stocks.
+
 <tt>rake doc:app</tt>.

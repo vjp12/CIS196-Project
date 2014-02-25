@@ -11,12 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217174543) do
+ActiveRecord::Schema.define(version: 20140237054622) do
 
-  create_table "companies", force: true do |t|
+  create_table "investments", force: true do |t|
+    t.integer  "member_id"
+    t.integer  "stock_id"
+    t.decimal  "share_change"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "investments", ["member_id"], name: "index_investments_on_member_id"
+  add_index "investments", ["stock_id"], name: "index_investments_on_stock_id"
+
+  create_table "members", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password"
+    t.decimal  "funds"
+    t.integer  "active_investments"
+    t.decimal  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,20 +47,20 @@ ActiveRecord::Schema.define(version: 20140217174543) do
     t.string   "title"
     t.string   "body"
     t.string   "text"
-    t.integer  "company_id"
-    t.integer  "user_id"
+    t.integer  "stock_id"
+    t.integer  "member_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "posts", ["company_id"], name: "index_posts_on_company_id"
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+  add_index "posts", ["member_id"], name: "index_posts_on_member_id"
+  add_index "posts", ["stock_id"], name: "index_posts_on_stock_id"
 
-  create_table "users", force: true do |t|
+  create_table "stocks", force: true do |t|
     t.string   "name"
-    t.string   "email"
-    t.string   "password"
-    t.boolean  "banned"
+    t.decimal  "price"
+    t.decimal  "market_value"
+    t.integer  "investors"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
