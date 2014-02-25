@@ -17,13 +17,13 @@
   </div>
   <div class="field">
     <%= f.label :price %><br>
-    <%= f.number_field :price %>
+    <%= f.number_field :price, :step => 'any' %>
   </div>
   <div class="field">
     <%= f.hidden_field :market_value, :value => 0 %>
   </div>
   <div class="field">
-        <%= f.hidden_field :investors, :value => 0 %>
+    <%= f.hidden_field :investors, :value => 0 %>
   </div>
   <div class="actions">
     <%= f.submit %>

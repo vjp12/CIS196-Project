@@ -14,7 +14,7 @@ class InvestmentsController < ApplicationController
 
   # GET /investments/new
   def new
-    @investment = Investment.new
+    @investment = Investment.new  
   end
 
   # GET /investments/1/edit
