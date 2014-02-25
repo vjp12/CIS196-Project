@@ -1,5 +1,18 @@
 <h1>New investment</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', investments_path %>
+<%= form_for(@investment) do |f| %>
+	<div class="field">
+    <p>member</p>
+    <%= f.collection_select :member_id, Member.all, :id, :name%>
+  </div>
+  <div class="field">
+    <p>stock</p>
+    <%= f.collection_select :stock_id, Stock.all, :id, :name%>
+  </div>
+  <div class="field">
+    <%= f.label :share_change %><br>
+    <%= f.number_field :share_change %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>  

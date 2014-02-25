@@ -3,8 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Name</th>
+      <th>Member</th>
       <th>Stock</th>
       <th>Share change</th>
       <th></th>
@@ -16,11 +15,10 @@
   <tbody>
     <% @investments.each do |investment| %>
       <tr>
-        <td><%= investment.id %></td>
-        <td><%= investment.name %></td>
-        <td><%= investment.stock %></td>
+        <td><%= investment.member.name %></td>
+        <td><%= investment.stock.name %></td>
         <td><%= investment.share_change %></td>
-        <td><%= link_to 'Show', investment %></td>
+        <td><%= link_to '.Show', investment %></td>
         <td><%= link_to 'Edit', edit_investment_path(investment) %></td>
         <td><%= link_to 'Destroy', investment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

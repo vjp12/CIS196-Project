@@ -1,12 +1,7 @@
 Homework1::Application.routes.draw do
   resources :investments
-
   resources :stocks
-
   resources :members
-
-  resources :companies
-  resources :users
   resources :posts
   root 'home#index'
   

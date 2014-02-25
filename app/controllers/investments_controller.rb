@@ -10,6 +10,7 @@ class InvestmentsController < ApplicationController
   # GET /investments/1
   # GET /investments/1.json
   def show
+    @investment = Investment.find(params[:id])
   end
 
   # GET /investments/new
@@ -19,6 +20,7 @@ class InvestmentsController < ApplicationController
 
   # GET /investments/1/edit
   def edit
+    @investment = Investment.find(params[:id])
   end
 
   # POST /investments
@@ -69,6 +71,6 @@ class InvestmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def investment_params
-      params.require(:investment).permit(:id_id, :name_id, :stock_id, :share_change)
+      params.require(:investment).permit(:member_id, :stock_id, :share_change)
     end
 end

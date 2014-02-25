@@ -6,8 +6,8 @@
       <th>Title</th>
       <th>Body</th>
       <th>Text</th>
-      <th>Company</th>
-      <th>User</th>
+      <th>Stock</th>
+      <th>Member</th>
       <th></th>
       <th></th>
       <th></th>
@@ -20,8 +20,8 @@
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         <td><%= post.text %></td>
-        <td><%= post.company.name %></td>
-        <td><%= post.user.name %></td>
+        <td><%= post.stock.name %></td>
+        <td><%= post.member.name %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
