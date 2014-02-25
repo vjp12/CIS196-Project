@@ -20,12 +20,10 @@
     <%= f.number_field :price %>
   </div>
   <div class="field">
-    <%= f.label :market_value %><br>
-    <%= f.number_field :market_value %>
+    <%= f.hidden_field :market_value, :value => 0 %>
   </div>
   <div class="field">
-    <%= f.label :investors %><br>
-    <%= f.number_field :investors %>
+        <%= f.hidden_field :investors, :value => 0 %>
   </div>
   <div class="actions">
     <%= f.submit %>
