@@ -16,7 +16,30 @@
 </head>
 <body>
 
+<div class= "navbar">
+	<ul class= "nav">
+		<li><a class="nav-link sign_in" href="https://accounts.google.com/ServiceLogin?hl=en&continue=https://www.google.com/imghp%3Fhl%3Den%26tab%3Dwi%26ei%3D4MbtUoPfAsulsQTprYEQ%26ved%3D0CAQQqi4oAg"a> Sign in </a></li>
+		<li><%= link_to 'Posts', posts_path, :class => "nav-link" %></li>
+		<li><%= link_to "Investments", investments_path, :class => "nav-link" %></li>
+		<li><%= link_to "Stocks", stocks_path, :class => "nav-link" %></li>
+		<li><%= link_to 'Members', members_path, :class => "nav-link" %></li>
+	</ul>
+</div>
+
 <%= yield %>
 
+<div class= "subbar">
+	<ul class= "sub">
+		<div id="left-links">
+			<li><a class="sub-link" href="https://www.google.com/intl/en/ads/?fg=1"> Advertising </a></li>
+			<li><a class="sub-link" href="https://www.google.com/services/?fg=1"> Business </a></li>
+			<li><a class="sub-link" href="https://www.google.com/intl/en/about/"> About </a></li>
+		</div>
+		<div id="right-links">
+			<li><a class="sub-link" href="https://www.google.com/intl/en/policies/?fg=1"> Privacy & Terms </a></li>
+			<li><%= link_to 'Home', root_path, :class => "sub-link" %></li>
+		</div>
+	</ul>
+</div>
 </body>
 </html>
