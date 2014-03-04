@@ -1,4 +1,5 @@
 Homework1::Application.routes.draw do
+  devise_for :members
   resources :investments
   resources :stocks
   resources :members

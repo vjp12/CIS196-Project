@@ -1,10 +1,15 @@
 class InvestmentsController < ApplicationController
+  before_filter :authenticate_member!
   before_action :set_investment, only: [:show, :edit, :update, :destroy]
 
   # GET /investments
   # GET /investments.json
   def index
-    @investments = Investment.all
+    if member_signed_in? 
+      @investments = Investment.all
+    else
+      @investments = []
+    end  
   end
 
   # GET /investments/1
@@ -15,7 +20,11 @@ class InvestmentsController < ApplicationController
 
   # GET /investments/new
   def new
-    @investment = Investment.new  
+    if member_signed_in? 
+      @investment = Investment.new(investment_params)
+    else
+      redirect_to new_member_session_path
+    end
   end
 
   # GET /investments/1/edit
@@ -26,16 +35,20 @@ class InvestmentsController < ApplicationController
   # POST /investments
   # POST /investments.json
   def create
-    @investment = Investment.new(investment_params)
-
-    respond_to do |format|
-      if @investment.save
-        format.html { redirect_to @investment, notice: 'Investment was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @investment }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @investment.errors, status: :unprocessable_entity }
+    if member_signed_in? 
+      @investment = Investment.new(investment_params)
+    
+      respond_to do |format|
+        if @investment.save
+          format.html { redirect_to @investment, notice: 'Investment was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @investment }
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @investment.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to new_member_session_path
     end
   end
 
@@ -63,7 +76,6 @@ class InvestmentsController < ApplicationController
     end
   end
 
-  private
     # Use callbacks to share common setup or constraints between actions.
     def set_investment
       @investment = Investment.find(params[:id])
@@ -71,6 +83,6 @@ class InvestmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def investment_params
-      params.require(:investment).permit(:member_id, :stock_id, :share_change)
+      params.fetch(:investment,{}).permit(:member_id, :stock_id, :share_change)
     end
 end
