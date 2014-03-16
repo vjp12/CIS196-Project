@@ -1,6 +1,6 @@
 == README
 http://secret-fjord-1158.herokuapp.com/
 
-I had a huge problem this week with the params.require() function. I solved this problem by using params.fetch() instead of params.require().
+This week's assignment was fairly easy. I encountered some minor difficulty with format validate, but once read up on regexp I was able to work past them.
 
 <tt>rake doc:app</tt>.

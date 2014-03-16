@@ -1,5 +1,15 @@
 <h1>Editing member</h1>
 
+<div class="error-msg"> 
+		<% if @member.errors.any? %> 
+		<ul> 
+			<% @member.errors.full_messages.each do |msg| %> 
+			<li><%= msg %></li> 
+ 			<% end %> 
+ 		</ul> 
+		<% end %> 
+</div>
+
 <%= render 'form' %>
 
 <%= link_to 'Show', @member %> |
