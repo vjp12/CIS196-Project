@@ -3,4 +3,6 @@ http://secret-fjord-1158.herokuapp.com/
 
 Had difficulty trying to configure the confirmation email. I ended figuring it out after reading SendGrid's API documentation.
 
+I was in the professor's office hours past midnight and she said that I shouldn't be penalized for my late submission.
+
 <tt>rake doc:app</tt>.
