@@ -4,6 +4,11 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem 'devise', '3.0'
 
+# Mail
+group :development do
+	gem 'letter_opener', github: 'ryanb/letter_opener'
+end
+
 # Use sqlite in development
 group :development do
 	gem 'sqlite3'

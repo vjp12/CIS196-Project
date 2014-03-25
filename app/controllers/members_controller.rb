@@ -1,6 +1,5 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
-
   # GET /members
   # GET /members.json
   def index
@@ -14,7 +13,7 @@ class MembersController < ApplicationController
 
   # GET /members/new
   def new
-    @member = Member.new
+    #UserMailer.registration_confirmation(@member).deliver
   end
 
   # GET /members/1/edit
@@ -28,6 +27,8 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
+        UserMailer.send_signup_email(@member).deliver
+        #UserMailer.registration_confiramtion(@member).deliver
         format.html { redirect_to @member, notice: 'Member was successfully created.' }
         format.json { render action: 'show', status: :created, location: @member }
       else
