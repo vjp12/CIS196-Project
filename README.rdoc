@@ -1,6 +1,6 @@
 == README
 http://secret-fjord-1158.herokuapp.com/
 
-This week's assignment was fairly easy. I encountered some minor difficulty with format validate, but once read up on regexp I was able to work past them.
+Had difficulty trying to configure the confirmation email. I ended figuring it out after reading SendGrid's API documentation.
 
 <tt>rake doc:app</tt>.

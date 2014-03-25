@@ -79,7 +79,7 @@ Homework1::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
  #mail
- config.action_mailer.default_url_options = {host: 'http://secret-fjord-1158.herokuapp.com/'}
+ config.action_mailer.default_url_options = {host: 'secret-fjord-1158.herokuapp.com/'}
  config.action_mailer.smtp_settings = {
     :address => 'smtp.sendgrid.net',
     :port => '587',
