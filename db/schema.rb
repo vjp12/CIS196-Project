@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140303020635) do
+ActiveRecord::Schema.define(version: 20140406194105) do
 
   create_table "investments", force: true do |t|
     t.integer  "member_id"
@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 20140303020635) do
 
   create_table "members", force: true do |t|
     t.string   "name"
+    t.string   "email"
     t.decimal  "funds"
     t.integer  "active_investments"
     t.decimal  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20140303020635) do
     t.integer  "investors"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ticker"
   end
 
 end

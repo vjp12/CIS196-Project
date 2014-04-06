@@ -12,12 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price, :step => 'any' %>
+    <%= f.label :ticker %><br>
+    <%= f.text_field :ticker %>
   </div>
   <div class="field">
     <%= f.hidden_field :market_value, :value => 0 %>

@@ -15,11 +15,7 @@ class StocksController < ApplicationController
 
   # GET /stocks/new
   def new
-    if member_signed_in? 
-      @stock = Stock.new(stock_params)
-    else
-      redirect_to new_member_session_path
-    end 
+    @stock = Stock.new 
   end
 
   # GET /stocks/1/edit
@@ -31,6 +27,10 @@ class StocksController < ApplicationController
   def create
     if member_signed_in? 
       @stock = Stock.new(stock_params)
+      @name = StockQuote::Stock.quote(:ticker).name
+      @price= StockQuote::Stock.quote(:ticker).last
+      @stock.price = @price
+      @stock.name = @name
 
       respond_to do |format|
         if @stock.save
@@ -49,6 +49,9 @@ class StocksController < ApplicationController
   # PATCH/PUT /stocks/1
   # PATCH/PUT /stocks/1.json
   def update
+    @price= StckQuote::Stock.quote(:ticker).last
+    @stock.price = @price
+
     respond_to do |format|
       if @stock.update(stock_params)
         format.html { redirect_to @stock, notice: 'Stock was successfully updated.' }
@@ -78,6 +81,6 @@ class StocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_params
-      params.fetch(:stock,{}).permit(:name, :price, :market_value, :investors)
+      params.fetch(:stock,{}).permit(:ticker, :name, :price, :market_value, :investors)
     end
 end
