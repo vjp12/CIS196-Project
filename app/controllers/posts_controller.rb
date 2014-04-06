@@ -15,16 +15,13 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find(params[:id])
+    @user = User.find(params[:id])
+    @posts = Post.where(user_id: @user.id)
   end
 
   # GET /posts/new
   def new
-    if member_signed_in?
-      @post = Post.new(post_params)
-    else
-      redirect_to new_member_session_path
-    end
+    @post = Post.new
   end
 
   # GET /posts/1/edit

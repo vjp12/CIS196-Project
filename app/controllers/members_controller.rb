@@ -13,7 +13,7 @@ class MembersController < ApplicationController
 
   # GET /members/new
   def new
-    #UserMailer.registration_confirmation(@member).deliver
+    @member = Member.new
   end
 
   # GET /members/1/edit

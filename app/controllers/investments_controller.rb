@@ -20,11 +20,7 @@ class InvestmentsController < ApplicationController
 
   # GET /investments/new
   def new
-    if member_signed_in? 
-      @investment = Investment.new(investment_params)
-    else
-      redirect_to new_member_session_path
-    end
+    @investment = Investment.new
   end
 
   # GET /investments/1/edit

@@ -32,3 +32,12 @@
 
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>
+
+<% @posts.each do |post| %>
+  <div class="dash-review">
+  <h2><%= link_to post.title, post_path(post.id) %></h2>
+  <h5><%= post.member.name%></h5>
+  <p><%= post.body %></p>
+</div>
+<%end%>
+
