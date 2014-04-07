@@ -12,11 +12,12 @@ class StocksController < ApplicationController
   # GET /stocks/1.json
   def show
     @stock = Stock.find(params[:id])
-    @investments = Investment.where(stock: @stock.name)
-    @my_investments = Investment.where(stock: @stock.name, member_id: current_member.id)
+    @investments = Investment.where(stock_id: @stock.id)
+    @my_investments = Investment.where(stock_id: @stock.id, member_id: current_member.id)
 
-    @stock.name = StockQuote::Stock.quote(:ticker).name
-    @stock.price = StockQuote::Stock.quote(:ticker).last
+    @stock.name= StockQuote::Stock.quote(@stock.ticker).name
+    @stock.price = StockQuote::Stock.quote(@stock.ticker).ask
+    @stock.update(stock_params)
   end
 
   # GET /stocks/new
