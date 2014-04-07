@@ -11,6 +11,12 @@ class StocksController < ApplicationController
   # GET /stocks/1
   # GET /stocks/1.json
   def show
+    @stock = Stock.find(params[:id])
+    @investments = Investment.where(stock: @stock.name)
+    @my_investments = Investment.where(stock: @stock.name, member_id: current_member.id)
+
+    @stock.name = StockQuote::Stock.quote(:ticker).name
+    @stock.price = StockQuote::Stock.quote(:ticker).last
   end
 
   # GET /stocks/new
@@ -27,10 +33,6 @@ class StocksController < ApplicationController
   def create
     if member_signed_in? 
       @stock = Stock.new(stock_params)
-      @name = StockQuote::Stock.quote(:ticker).name
-      @price= StockQuote::Stock.quote(:ticker).last
-      @stock.price = @price
-      @stock.name = @name
 
       respond_to do |format|
         if @stock.save
@@ -49,9 +51,6 @@ class StocksController < ApplicationController
   # PATCH/PUT /stocks/1
   # PATCH/PUT /stocks/1.json
   def update
-    @price= StckQuote::Stock.quote(:ticker).last
-    @stock.price = @price
-
     respond_to do |format|
       if @stock.update(stock_params)
         format.html { redirect_to @stock, notice: 'Stock was successfully updated.' }

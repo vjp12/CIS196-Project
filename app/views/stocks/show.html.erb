@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Ticker:</strong>
+  <%= @stock.ticker %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @stock.name %>
 </p>
@@ -22,3 +27,20 @@
 
 <%= link_to 'Edit', edit_stock_path(@stock) %> |
 <%= link_to 'Back', stocks_path %>
+
+<h2><strong>My Investments:</strong></h2>
+<% @my_investments.each do |my_investment| %>
+	<div class="dash-review">
+		<h5><%= my_investment.stock_change %></h5>
+		<p><%= my_investment.price %></p>
+	</div>
+<%end%>	
+
+<h1><strong>Latest Investments:</strong></h1>
+<% @investments.each do |investment| %>
+	<div class="dash-review">
+		<h2><%= link_to investment.member, investment_path(member.id) %> </h2>
+		<h5><%= investment.stock_change %></h5>
+		<p><%= investment.price %></p>
+	</div>
+<%end%>	

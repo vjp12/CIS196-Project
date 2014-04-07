@@ -5,6 +5,12 @@
     <%= f.text_field :ticker %>
   </div>
   <div class="field">
+    <%= f.hidden_field :name, :name => "invalid ticker" %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :price, :price => 99999 %>
+  </div>
+  <div class="field">
     <%= f.hidden_field :market_value, :market_value => 0 %>
   </div>
   <div class="field">

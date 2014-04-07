@@ -33,6 +33,16 @@
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>
 
+<h1><strong>Investments:</strong></h1>
+<% @investments.each do |investment| %>
+  <div class="dash-review">
+  <h2><%= link_to stock.title, investment_path(investment.id) %></h2>
+  <h5><%= investment.member.name%></h5>
+  <p><%= investment.stock_change %></p>
+</div>
+<%end%>
+
+<h1><strong>Posts:</strong></h1>
 <% @posts.each do |post| %>
   <div class="dash-review">
   <h2><%= link_to post.title, post_path(post.id) %></h2>

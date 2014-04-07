@@ -3,7 +3,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 gem 'devise', '3.0'
-gem 'stock_quote'
+
+#pulls stock datas
+gem 'stock_quote', '1.1.0'
 
 # Mail
 group :development do
