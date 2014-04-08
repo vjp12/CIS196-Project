@@ -1,8 +1,6 @@
 == README
 http://secret-fjord-1158.herokuapp.com/
 
-Had difficulty trying to configure the confirmation email. I ended figuring it out after reading SendGrid's API documentation.
-
-I was in the professor's office hours past midnight and she said that I shouldn't be penalized for my late submission.
+I had no difficulty implimenting the various queries required by this assignment. My modifications can be seen in member show and stock show. I did have some difficulty with implimenting the new gem I added to pull data from yahoo finance. the gem's readme was unclear on how to implement the api calls. however, I was eventually able to figure ou thow to use the the gem by playing around with the gem. 
 
 <tt>rake doc:app</tt>.
