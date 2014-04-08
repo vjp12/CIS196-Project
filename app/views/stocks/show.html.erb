@@ -1,3 +1,4 @@
+<div style="width: 1590px; height: 600px; overflow-y: auto;">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -28,17 +29,21 @@
 <%= link_to 'Edit', edit_stock_path(@stock) %> |
 <%= link_to 'Back', stocks_path %>
 
+<br>
+<br>
 <h2><strong>My Investments:</strong></h2>
 <% @my_investments.each do |my_investment| %>
 	<div class="dash-review">
-		<h2>share change: <%= my_investment.share_change %></h2>
+		<h4>share change: <%= my_investment.share_change %></h4>
 	</div>
 <%end%>	
 
+<br>
 <h1><strong>Latest Investments:</strong></h1>
 <% @investments.each do |investment| %>
 	<div class="dash-review">
 		<h2><%= link_to Member.where(id: investment.member_id).take!.name, investment_path(investment.member_id) %> </h2>
-		<h5>share change: <%= investment.share_change %></h5>
+		<h4>share change: <%= investment.share_change %></h4>
 	</div>
 <%end%>	
+</div>

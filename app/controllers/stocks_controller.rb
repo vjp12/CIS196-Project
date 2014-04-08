@@ -16,7 +16,7 @@ class StocksController < ApplicationController
     @my_investments = Investment.where(stock_id: @stock.id, member_id: current_member.id)
 
     @stock.name= StockQuote::Stock.quote(@stock.ticker).name
-    @stock.price = StockQuote::Stock.quote(@stock.ticker).ask
+    @stock.price = StockQuote::Stock.quote(@stock.ticker).last_trade_price_only
     @stock.update(stock_params)
   end
 

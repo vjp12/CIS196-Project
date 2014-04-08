@@ -1,13 +1,9 @@
+<div style="width: 1590px; height: 600px; overflow-y: auto;">
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
   <%= @member.name %>
-</p>
-
-<p>
-  <strong>Id:</strong>
-  <%= @member.id %>
 </p>
 
 <p>
@@ -33,6 +29,8 @@
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>
 
+<br>
+<br>
 <h1><strong>Investments:</strong></h1>
 <% @investments.each do |investment| %>
   <div class="dash-review">
@@ -41,12 +39,12 @@
 </div>
 <%end%>
 
+<br>
 <h1><strong>Posts:</strong></h1>
 <% @posts.each do |post| %>
   <div class="dash-review">
   <h2><%= link_to post.title, post_path(post.id) %></h2>
-  <h5><%= post.member.name%></h5>
   <p><%= post.body %></p>
 </div>
 <%end%>
-
+</div>
