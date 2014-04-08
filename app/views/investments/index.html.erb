@@ -1,3 +1,4 @@
+<div style="width: 1590px; height: 590px; overflow-y: auto;">
 <h1>Investment List</h1>
 
 <table>
@@ -18,7 +19,7 @@
         <td><%= investment.member.name %></td>
         <td><%= investment.stock.name %></td>
         <td><%= investment.share_change %></td>
-        <td><%= link_to '.Show', investment %></td>
+        <td><%= link_to 'Show', investment %></td>
         <td><%= link_to 'Edit', edit_investment_path(investment) %></td>
         <td><%= link_to 'Destroy', investment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -30,3 +31,4 @@
 
 <%= link_to 'New Investment', new_investment_path %> |
 <%= link_to 'Home', root_path %>  
+</div>

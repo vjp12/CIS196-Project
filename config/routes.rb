@@ -4,6 +4,11 @@ Homework1::Application.routes.draw do
   resources :stocks
   resources :members
   resources :posts
+
+  get "increment_stock/:id/:i_id", to: "stocks#increment_stock", as: "increment_stock"
+  get "deincrement_stock/:id/:i_id", to: "stocks#deincrement_stock", as: "deincrement_stock"
+  get "delete_stock_investments/:id", to: "stock#delete_stock_investments", as: "delete_stock_investments"
+
   root 'home#index'
   
   # The priority is based upon order of creation: first created -> highest priority.

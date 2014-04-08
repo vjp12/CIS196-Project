@@ -5,14 +5,22 @@ class StocksController < ApplicationController
   # GET /stocks
   # GET /stocks.json
   def index
-    @stocks = Stock.all
+    @stocks = Stock.all 
+ 
+    @stocks.each  do |x|
+      @price = StockQuote::Stock.quote(x.ticker).last_trade_price_only
+      @name = StockQuote::Stock.quote(x.ticker).name
+      x.name = @name
+      x.price = @price
+      x.update(stock_params)
+    end  
   end
 
   # GET /stocks/1
   # GET /stocks/1.json
   def show
     @stock = Stock.find(params[:id])
-    @investments = Investment.where(stock_id: @stock.id)
+    @investments = Investment.where(stock_id: @stock.id).limit(10)
     @my_investments = Investment.where(stock_id: @stock.id, member_id: current_member.id)
 
     @stock.name= StockQuote::Stock.quote(@stock.ticker).name
@@ -66,11 +74,28 @@ class StocksController < ApplicationController
   # DELETE /stocks/1
   # DELETE /stocks/1.json
   def destroy
+    redirect_to delete_stock_investments(@stock_id)
     @stock.destroy
-    respond_to do |format|
-      format.html { redirect_to stocks_url }
+  end
+
+  def increment_stock
+    @stock = Stock.find(params[:id])
+    @stock.investors += 1
+    @stock.update(stock_params) 
+     respond_to do |format|
+        format.html { redirect_to Investment.find(params[:i_id]), notice: 'Investment was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @investment }
+     end     
+  end
+
+  def deincrement_stock
+    @stock = Stock.find(params[:id])
+    @stock.investors -= 1
+    @stock.update(stock_params) 
+     respond_to do |format|
+      format.html { redirect_to investments_url }
       format.json { head :no_content }
-    end
+     end     
   end
 
   private

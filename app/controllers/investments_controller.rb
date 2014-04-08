@@ -15,7 +15,6 @@ class InvestmentsController < ApplicationController
   # GET /investments/1
   # GET /investments/1.json
   def show
-    @investment = Investment.find(params[:id])
   end
 
   # GET /investments/new
@@ -34,15 +33,16 @@ class InvestmentsController < ApplicationController
     if member_signed_in? 
       @investment = Investment.new(investment_params)
     
-      respond_to do |format|
+    
         if @investment.save
-          format.html { redirect_to @investment, notice: 'Investment was successfully created.' }
-          format.json { render action: 'show', status: :created, location: @investment }
+          @stock_id = @investment.stock_id
+          redirect_to increment_stock_path(@stock_id, @investment.id)
         else
-          format.html { render action: 'new' }
-          format.json { render json: @investment.errors, status: :unprocessable_entity }
+          respond_to do |format|
+            format.html { render action: 'new' }
+            format.json { render json: @investment.errors, status: :unprocessable_entity }
+          end
         end
-      end
     else
       redirect_to new_member_session_path
     end
@@ -65,13 +65,24 @@ class InvestmentsController < ApplicationController
   # DELETE /investments/1
   # DELETE /investments/1.json
   def destroy
+    @stock_id = @investment.stock_id
+
     @investment.destroy
-    respond_to do |format|
-      format.html { redirect_to investments_url }
-      format.json { head :no_content }
-    end
+    redirect_to deincrement_stock_path(@stock_id, @investment.id)
   end
 
+  def delete_stock_investments
+    @stocks = Investment.find(params[:id])
+    @stocks.each  do |x|
+      x.destroy
+    end  
+    respond_to do |format|
+      format.html { redirect_to stocks_url }
+      format.json { head :no_content }
+    end  
+  end    
+
+  private
     # Use callbacks to share common setup or constraints between actions.
     def set_investment
       @investment = Investment.find(params[:id])
