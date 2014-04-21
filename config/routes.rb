@@ -1,9 +1,11 @@
 Homework1::Application.routes.draw do
+  get "pages/index"
   devise_for :members
   resources :investments
   resources :stocks
-  resources :members
+  resources :members, only: [:show, :index]
   resources :posts
+  resources :pages
 
   get "increment_stock/:id/:i_id", to: "stocks#increment_stock", as: "increment_stock"
   get "deincrement_stock/:id/:i_id", to: "stocks#deincrement_stock", as: "deincrement_stock"

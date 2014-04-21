@@ -4,5 +4,6 @@ class Investment < ActiveRecord::Base
 
   validates :member, presence: true
   validates :stock, presence: true 
+  validates :share_change, presence: true
 
 end

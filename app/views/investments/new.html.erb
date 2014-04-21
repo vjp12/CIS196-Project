@@ -8,9 +8,9 @@
   </div>
   <div class="field">
     <p>stock</p>
-    <%= f.collection_select :stock_id, Stock.all, :id, :name%>
+    <%= f.collection_select :stock_id, Stock.all, :id, :name %>
   </div>
-  <div class="field">
+  <div class="field"S>
     <%= f.label :share_change %><br>
     <%= f.number_field :share_change %>
   </div>
@@ -26,4 +26,18 @@
     </ul> 
     <% end %> 
   </div>
+  <br>
+  <button class= "hide-btn"> 
+    Hide stock quotes
+  </button>
+  <h3><strong>Quotes:</strong></h3>
+  <div class="dash-review">
+    <% @stocks.each do |stock| %>
+      <p><%= link_to stock.name, stock_path(stock.id) %>: <%= stock.price %></p>
+    <% end %> 
+  </div> 
+  <% javascript_tag do %>
+    var stocks = <%= @stocks.to_json %>;
+  <% end %>
+  <% javascript_include_tag 'investments.js' %>
 <% end %> 

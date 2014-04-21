@@ -1,0 +1,8 @@
+<h1>Leaderboard</h1>
+
+<% @members.each do |member| %>
+  <div class="dash-review">
+  	<% @i = @i + 1 %>
+  <h2><%= @i %>. <%= link_to Member.where(id: member.id).take!.name, member_path(member.id)%> value: <%= member.value %></h2>
+  </div>
+<%end%>

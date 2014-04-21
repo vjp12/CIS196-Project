@@ -17,6 +17,13 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+  <div class="field">
+    <%= f.hidden_field :funds, :value => 1000000 %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :value, :value => 1000000 %>
+  </div>
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 

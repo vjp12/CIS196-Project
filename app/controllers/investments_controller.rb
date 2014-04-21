@@ -20,7 +20,8 @@ class InvestmentsController < ApplicationController
   # GET /investments/new
   def new
     @investment = Investment.new
-  end
+    @stocks = Stock.all
+  end   
 
   # GET /investments/1/edit
   def edit
@@ -30,19 +31,19 @@ class InvestmentsController < ApplicationController
   # POST /investments
   # POST /investments.json
   def create
+    @stocks = Stock.all
     if member_signed_in? 
       @investment = Investment.new(investment_params)
     
-    
-        if @investment.save
-          @stock_id = @investment.stock_id
-          redirect_to increment_stock_path(@stock_id, @investment.id)
-        else
-          respond_to do |format|
-            format.html { render action: 'new' }
-            format.json { render json: @investment.errors, status: :unprocessable_entity }
-          end
+      if @investment.save
+        @stock_id = @investment.stock_id
+        redirect_to increment_stock_path(@stock_id, @investment.id)
+      else
+        respond_to do |format|
+          format.html { render action: 'new' }
+          format.json { render json: @investment.errors, status: :unprocessable_entity }
         end
+      end
     else
       redirect_to new_member_session_path
     end
