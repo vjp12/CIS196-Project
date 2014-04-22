@@ -1,5 +1,5 @@
-$(function(){
-	$("button.hide-btn").click(function(){
+$(document).on("page:load", function(){
+	$(".hide-btn").click(function(){
 		if($(".dash-review").hasClass("hide")){
 			$(".dash-review").removeClass("hide");
 			$(".hide-btn").text("Hide stock quotes");

@@ -13,7 +13,7 @@ class StocksController < ApplicationController
       x.name = @name
       x.price = @price
       x.update(stock_params)
-    end  
+    end 
   end
 
   # GET /stocks/1
@@ -96,6 +96,16 @@ class StocksController < ApplicationController
       format.html { redirect_to investments_url }
       format.json { head :no_content }
      end     
+  end
+
+  def refresh_stocks
+    @stocks = Stock.all 
+ 
+    @stocks.each  do |x|
+      @price = StockQuote::Stock.quote(x.ticker).last_trade_price_only
+      x.price = @price
+      x.update(stock_params)
+    end 
   end
 
   private

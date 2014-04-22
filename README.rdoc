@@ -1,6 +1,11 @@
 == README
 http://secret-fjord-1158.herokuapp.com/
 
-I had no difficulty implimenting the various queries required by this assignment. My modifications can be seen in member show and stock show. I did have some difficulty with implimenting the new gem I added to pull data from yahoo finance. the gem's readme was unclear on how to implement the api calls. however, I was eventually able to figure ou thow to use the the gem by playing around with the gem. 
+I implemented show-hide functionality for a list of stock quotes when making a new investment. My toughest challenge was that i did not implement a return false option in my javascript code, so tha that the button defaulted to submitting the application instead of toggling the list.
+
+Updates:
+1.) Values and funds are now visable
+2.) Leaderboard allows for more than teo people to occupy the same rank if their values are equal
+3.) Member editing has migrated to the devise
 
 <tt>rake doc:app</tt>.
