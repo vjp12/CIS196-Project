@@ -77,12 +77,12 @@ class InvestmentsController < ApplicationController
   end
 
   def delete_stock_investments
-    @investments = Investment.find(params[:id])
+    @investments = Investment.where(stock_id: :id)
     @investments.each  do |x|
       x.destroy
     end  
     respond_to do |format|
-      format.html { redirect_to stocks_url }
+      format.html { redirect_to stocks_url, notice: 'Stock was successfully deleted.' }
       format.json { head :no_content }
     end  
   end    

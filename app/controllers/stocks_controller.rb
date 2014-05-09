@@ -77,12 +77,8 @@ class StocksController < ApplicationController
   # DELETE /stocks/1
   # DELETE /stocks/1.json
   def destroy
-    redirect_to delete_stock_investments(@stock_id)
-    @stock.destroy
-    respond_to do |format|
-      format.html { redirect_to stocks_url, notice: 'Stock was successfully deleted.' }
-      format.json { head :no_content }
-    end   
+    redirect_to delete_stock_investments_path(@stock.id)
+    @stock.destroy 
   end
 
   def increment_stock
