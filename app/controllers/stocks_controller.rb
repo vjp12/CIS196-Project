@@ -19,10 +19,13 @@ class StocksController < ApplicationController
   # GET /stocks/1
   # GET /stocks/1.json
   def show
+    @net_investment = 0
     @stock = Stock.find(params[:id])
     @investments = Investment.where(stock_id: @stock.id).limit(10)
     @my_investments = Investment.where(stock_id: @stock.id, member_id: current_member.id)
-
+    @my_investments.each do |investment|
+      @net_investment += investment.share_change
+    end  
     @stock.name= StockQuote::Stock.quote(@stock.ticker).name
     @stock.price = StockQuote::Stock.quote(@stock.ticker).last_trade_price_only
     @stock.update(stock_params)
@@ -76,6 +79,10 @@ class StocksController < ApplicationController
   def destroy
     redirect_to delete_stock_investments(@stock_id)
     @stock.destroy
+    respond_to do |format|
+      format.html { redirect_to stocks_url, notice: 'Stock was successfully deleted.' }
+      format.json { head :no_content }
+    end   
   end
 
   def increment_stock
@@ -95,7 +102,7 @@ class StocksController < ApplicationController
      respond_to do |format|
       format.html { redirect_to investments_url }
       format.json { head :no_content }
-     end     
+     end  
   end
 
   def refresh_stocks

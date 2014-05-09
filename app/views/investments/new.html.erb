@@ -36,8 +36,4 @@
       <p><%= link_to stock.name, stock_path(stock.id) %>: <%= stock.price %></p>
     <% end %> 
   </div> 
-  <% javascript_tag do %>
-    var stocks = <%= @stocks.to_json %>;
-  <% end %>
-  <% javascript_include_tag 'investments.js' %>
 <% end %> 

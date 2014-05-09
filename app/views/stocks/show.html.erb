@@ -31,12 +31,18 @@
 
 <br>
 <br>
+<h2><strong>My Net Investment:</strong></h2>
+<div class="dash-review">
+  <h4>net share change: <%= @net_investment %></h4>
+</div>
+
+
 <h2><strong>My Investments:</strong></h2>
 <% @my_investments.each do |my_investment| %>
-	<div class="dash-review">
-		<h4>share change: <%= my_investment.share_change %></h4>
-	</div>
-<%end%>	
+  <div class="dash-review">
+    <h4>share change: <%= my_investment.share_change %></h4>
+  </div>
+<%end%> 
 
 <br>
 <h1><strong>Latest Investments:</strong></h1>

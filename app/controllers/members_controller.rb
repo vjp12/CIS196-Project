@@ -21,6 +21,7 @@ class MembersController < ApplicationController
 
   # GET /members/1/edit
   def edit
+    @member = Member.find(params[:id])
   end
 
   # POST /members
@@ -64,6 +65,11 @@ class MembersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def order
+    @member = Member.where(id: :member_id).first
+    @member.funds += value
+  end  
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,6 +1,7 @@
 class InvestmentsController < ApplicationController
   before_filter :authenticate_member!
   before_action :set_investment, only: [:show, :edit, :update, :destroy]
+  include StocksHelper
 
   # GET /investments
   # GET /investments.json
@@ -67,14 +68,17 @@ class InvestmentsController < ApplicationController
   # DELETE /investments/1.json
   def destroy
     @stock_id = @investment.stock_id
-
-    @investment.destroy
+    @member_id = @investment.member_id
+    @stock = Stock.where(id: @stock_id).first
+    @price = StockQuote::Stock.quote(@stock.ticker).last_trade_price_only
+    @value = @investment.share_change*@price
     redirect_to deincrement_stock_path(@stock_id, @investment.id)
+    @investment.destroy
   end
 
   def delete_stock_investments
-    @stocks = Investment.find(params[:id])
-    @stocks.each  do |x|
+    @investments = Investment.find(params[:id])
+    @investments.each  do |x|
       x.destroy
     end  
     respond_to do |format|
