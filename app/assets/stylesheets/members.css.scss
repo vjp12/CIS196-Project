@@ -2,11 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.content_box{
+.content-box{
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
 	height: 684px;
 	bottom: 44px;
+	overflow-y: auto;
+}
+
+.dash-review{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	height: 50px;
+	bottom: 0px;
+	overflow-y: auto;
+}
+
+.dash-review2{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	height: 110px;
+	bottom: 0px;
 	overflow-y: auto;
 }

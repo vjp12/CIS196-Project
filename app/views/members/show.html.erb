@@ -1,45 +1,48 @@
-<h2>Viewing <%=@member.name %>'s Profile</h2>
-<p id="notice"><%= notice %></p>
+<div class="content-box">
+  <h2>Viewing <%=@member.name %>'s Profile</h2>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @member.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @member.name %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @member.email %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @member.email %>
+  </p>
 
-<p>
-  <strong>Funds:</strong>
-  <%= @member.funds %>
-</p>
+  <p>
+    <strong>Funds:</strong>
+    <%= @member.funds %>
+  </p>
 
-<p>
-  <strong>Value:</strong>
-  <%= @member.value %>
-</p>
+  <p>
+    <strong>Value:</strong>
+    <%= @member.value %>
+  </p>
 
-<%= link_to 'Edit', edit_member_registration_path(@member) %> |
-<%= link_to 'Back', members_path %>
+  <%= link_to 'Edit', edit_member_registration_path(@member) %> |
+  <%= link_to 'Back', members_path %>
 
-<br>
-<br>
-<h3><strong>Investments:</strong></h3>
-<% @investments.each do |investment| %>
+  <br>
+  <br>
+  <h3><strong>Investments:</strong></h3>
   <div class="dash-review">
-  <h2>stock: <%= link_to Stock.where(id: investment.stock_id).take!.name, investment_path(investment.id) %></h2>
-  <p>share change: <%= investment.share_change %></p>
-</div>
-<%end%>
+    <% @i = 1 %> 
+    <% @investments.each do |investment| %>
+      <h2><%= @i %>) stock: <%= link_to Stock.where(id: investment.stock_id).take!.name, investment_path(investment.id) %></h2>
+      <p>share change: <%= investment.share_change %></p>
+      <% @i += 1 %>
+    <%end%>
+  </div>
 
-<br>
-<h3><strong>Posts:</strong></h3>
-<% @posts.each do |post| %>
-  <div class="dash-review">
-  <h2><%= link_to post.title, post_path(post.id) %></h2>
-  <p><%= post.body %></p>
-</div>
-<%end%>
+  <br>
+  <h3><strong>Posts:</strong></h3>
+  <div class="dash-review2">
+    <% @posts.each do |post| %>
+      <h2><%= link_to post.title, post_path(post.id) %></h2>
+      <p><%= post.body %></p> 
+    <%end%>
+  </div>
 </div>
