@@ -26,23 +26,34 @@
 <br>
 <br>
 <button class= "hide-btn"> Show my investments </button>
-<div class="dash-review">
+<div class="dash-review3">
   <h2><strong>My Net Investment:</strong></h2>
     <h4>net share change: <%= @net_investment %></h4>  
+</div>
 
+
+<div class="dash-review3">
   <h2><strong>My Investments:</strong></h2>
+</div>  
+<div class="dash-review">
+  <% @i = 1 %>  
   <% @my_investments.each do |my_investment| %>
-    <h4>share change: <%= my_investment.share_change %></h4>
+    <h4><%= @i %>) share change: <%= my_investment.share_change %></h4>
+    <% @i += 1 %>  
   <%end%> 
 </div>
 
 <br>
 <button class= "hide-btn2"> Show latest investments </button>
-<div class="dash-review2">
+<div class="dash-review4">
   <h1><strong>Latest Investments:</strong></h1>
+</div>  
+<div class="dash-review2">  
+  <% @i = 1 %> 
   <% @investments.each do |investment| %>
     <h2><%= link_to Member.where(id: investment.member_id).take!.name, investment_path(investment.member_id) %> </h2>
-    <h4>share change: <%= investment.share_change %></h4>
+    <h4><%= @i %>) share change: <%= investment.share_change %></h4>
+    <% @i += 1 %>  
   <%end%> 
 </div>
 </center>

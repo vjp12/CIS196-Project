@@ -13,3 +13,12 @@ h1{
 .hide{
 	display: none;
 }
+
+.content_box{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	height: 684px;
+	bottom: 44px;
+	overflow-y: auto;
+}
