@@ -22,7 +22,6 @@
         <td><%= member.funds %></td>
         <td><%= member.value %></td>
         <td><%= link_to 'Show', member %></td>
-        <td><%= link_to 'Edit', edit_member_registration_path(member) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,5 +29,6 @@
 
 <br>
 
+<%= link_to 'Edit Account', edit_member_registration_path %> |
 <%= link_to 'Home', root_path %>
 </div>

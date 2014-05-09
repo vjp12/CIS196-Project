@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408042924) do
+ActiveRecord::Schema.define(version: 20140509033944) do
 
   create_table "investments", force: true do |t|
     t.integer  "member_id"
@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(version: 20140408042924) do
     t.string   "name"
     t.decimal  "price"
     t.decimal  "market_value"
-    t.integer  "investors"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ticker"

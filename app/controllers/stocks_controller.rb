@@ -119,6 +119,6 @@ class StocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_params
-      params.fetch(:stock,{}).permit(:ticker, :name, :price, :market_value, :investors)
+      params.fetch(:stock,{}).permit(:ticker, :name, :price, :market_value)
     end
 end

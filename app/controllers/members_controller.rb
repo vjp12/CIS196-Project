@@ -67,8 +67,13 @@ class MembersController < ApplicationController
   end
 
   def order
-    @member = Member.where(id: :member_id).first
-    @member.funds += value
+    @member = Member.find(params[:id])
+    @member.funds += :change
+    @member.update(member_params) 
+     respond_to do |format|
+        format.html { redirect_to Member.find(params[:id]), notice: 'Investments successfully updated' }
+        format.json { render action: 'show', status: :created, location: @investment }
+     end     
   end  
 
   private

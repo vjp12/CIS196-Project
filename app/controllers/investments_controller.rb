@@ -38,7 +38,11 @@ class InvestmentsController < ApplicationController
     
       if @investment.save
         @stock_id = @investment.stock_id
-        redirect_to increment_stock_path(@stock_id, @investment.id)
+        @member_id = @investment.member_id
+        @stock = Stock.where(id: @stock_id).first
+        @price = StockQuote::Stock.quote(@stock.ticker).last_trade_price_only
+        @value = -@investment.share_change*@price
+        redirect_to order_path(@member_id, @value)
       else
         respond_to do |format|
           format.html { render action: 'new' }
@@ -72,7 +76,7 @@ class InvestmentsController < ApplicationController
     @stock = Stock.where(id: @stock_id).first
     @price = StockQuote::Stock.quote(@stock.ticker).last_trade_price_only
     @value = @investment.share_change*@price
-    redirect_to deincrement_stock_path(@stock_id, @investment.id)
+    redirect_to order_path(@member_id, @value)
     @investment.destroy
   end
 
