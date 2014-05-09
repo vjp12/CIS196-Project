@@ -1,14 +1,33 @@
 <center>
 <h1>Leaderboard</h1>
-<% prev_member = @members[1] %>
 
-<% @members.each do |member| %>
-  <div class="dash-review">
-  	<% if (prev_member.value != member.value) %>
-  		<%  @i = @i + 1 %> 
-  	<% end %>	
-  	<% prev_member = member %>
-  <h2><%= @i %>. <%= link_to Member.where(id: member.id).take!.name, member_path(member.id)%> value: <%= member.value %></h2>
-  </div>
-<%end%>
+<table>
+  <thead>
+    <tr>
+      <th>Name&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Value</th>
+      <th></th>
+    </tr>
+  </thead>
+
+<% if !@members.empty? %>
+	<% prev_member = @members[0] %>
+<% end %>
+
+  <tbody>
+  <% @members.each do |member| %>
+      <div class="dash-review">
+	    <% if (prev_member.value != member.value) %>
+		  <%  @i = @i + 1 %> 
+	    <% end %>	
+	    <% prev_member = member %>
+        <tr>
+		  <td><h2><%= @i %>.  <%= link_to Member.where(id: member.id).take!.name, member_path(member.id)%>&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
+	  	  <td><h2><%= member.value %></h2></td>
+	    </tr>
+    	</div>
+   <% end %>
+ </tbody>
+</table>
+
 </center>
