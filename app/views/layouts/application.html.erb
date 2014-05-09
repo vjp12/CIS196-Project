@@ -21,7 +21,7 @@
 		<% if !signed_in? %>
 			<li><%=link_to 'Login', new_member_session_path, :class => "nav-link sign_in" %></li>
 		<% end %>
-		<li><%= link_to 'Posts', posts_path, class: "nav-link" %></li>
+		<li><%= link_to 'Annoucements', posts_path, class: "nav-link" %></li>
 		<li><%= link_to "Investments", investments_path, class: "nav-link" %></li>
 		<li><%= link_to "Stocks", stocks_path, class: "nav-link" %></li>
 		<li><%= link_to 'Members', members_path, class: "nav-link" %></li>

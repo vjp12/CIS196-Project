@@ -78,6 +78,16 @@ class InvestmentsController < ApplicationController
     @investment.destroy
   end
 
+  def delete_member_investments
+    @investments = Investment.where(member_id: :id)
+    @investments.each  do |x|
+      x.destroy
+    end 
+    respond_to do |format|
+      format.html { redirect_to stocks_url, notice: 'Stock was successfully deleted.' }
+      format.json { head :no_content }
+    end
+  end  
   def delete_stock_investments
     @investments = Investment.where(stock_id: :id)
     @investments.each  do |x|
