@@ -5,6 +5,8 @@ class Member < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :confirmable
 
+  has_many :investment
+
   validates :name, presence: true
   validates :email, presence: true
   validates :email, uniqueness: true

@@ -1,3 +1,6 @@
+<h1><%= @stock.name %></h1>
+<br>
+<img src= <%= @url %> />
 <center>
 <div class="content-box">
 <p id="notice"><%= notice %></p>
@@ -5,11 +8,6 @@
 <p>
   <strong>Ticker:</strong>
   <%= @stock.ticker %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @stock.name %>
 </p>
 
 <p>
@@ -52,7 +50,5 @@
     <% @i += 1 %>  
   <%end%> 
 </div>
-<br>
-<img src= <%= @url %> />
 </div>
 </center>

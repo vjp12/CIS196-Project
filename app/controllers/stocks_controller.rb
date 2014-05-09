@@ -8,11 +8,8 @@ class StocksController < ApplicationController
     @stocks = Stock.all 
  
     @stocks.each  do |x|
-      @price = StockQuote::Stock.quote(x.ticker).last_trade_price_only
-      @name = StockQuote::Stock.quote(x.ticker).name
-      x.name = @name
-      x.price = @price
-      x.update(stock_params)
+      x.price = StockQuote::Stock.quote(x.ticker).last_trade_price_only
+      x.save
     end 
   end
 
@@ -26,10 +23,8 @@ class StocksController < ApplicationController
     @my_investments.each do |investment|
       @net_investment += investment.share_change
     end  
-    @stock.name= StockQuote::Stock.quote(@stock.ticker).name
     @stock.price = StockQuote::Stock.quote(@stock.ticker).last_trade_price_only
-    @stock.update(stock_params)
-
+    @stock.save
     require 'net/http'
 
     begin
@@ -54,6 +49,8 @@ class StocksController < ApplicationController
   def create
     if member_signed_in? 
       @stock = Stock.new(stock_params)
+      @stock.ticker = @stock.ticker.upcase
+      @stock.save
       @testStockTicker = StockQuote::Stock.quote(@stock.ticker)
       if @testStockTicker.failure?
         @stock.destroy
@@ -61,9 +58,14 @@ class StocksController < ApplicationController
           format.html { redirect_to new_stock_path, notice: 'Invalid ticker. Please try again.' }
         end
       else
+        response = Net::HTTP.get_response("d.yimg.com", "/autoc.finance.yahoo.com/autoc?query=" + @stock.ticker + "&callback=YAHOO.Finance.SymbolSuggest.ssCallback")
+        stockHash = response.body[39...-1]
+        Rails.logger.debug("debug::     STOCKHASH : " + stockHash)
+        parsed = JSON.parse(stockHash)
+        @stock.name = parsed["ResultSet"]["Result"][0]["name"]
         respond_to do |format|
           if @stock.save
-            format.html { redirect_to @stock, notice: 'Stock was successfully created.' }
+            format.html { redirect_to @stock, notice: 'Stock was successfully added.' }
           else
             format.html { render action: 'new' }
             format.json { render json: @stock.errors, status: :unprocessable_entity }
@@ -120,9 +122,8 @@ class StocksController < ApplicationController
     @stocks = Stock.all 
  
     @stocks.each  do |x|
-      @price = StockQuote::Stock.quote(x.ticker).last_trade_price_only
-      x.price = @price
-      x.update(stock_params)
+      x.price = StockQuote::Stock.quote(x.ticker).last_trade_price_only
+      x.save
     end 
   end
 
