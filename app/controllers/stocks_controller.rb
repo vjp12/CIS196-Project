@@ -29,6 +29,15 @@ class StocksController < ApplicationController
     @stock.name= StockQuote::Stock.quote(@stock.ticker).name
     @stock.price = StockQuote::Stock.quote(@stock.ticker).last_trade_price_only
     @stock.update(stock_params)
+
+    require 'net/http'
+
+    begin
+      @url = 'http://chart.finance.yahoo.com/z?s=%{ticker}' % {ticker: @stock.ticker}
+      @resp = Net::HTTP.get_response(URI.parse(@url)) # get_response takes an URI object
+    rescue
+      print "Connection error."
+    end   
   end
 
   # GET /stocks/new
