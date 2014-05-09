@@ -2,7 +2,7 @@ body {
   background-color: #fff;
   color: #333;
   font-family: "Open Sans", arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 18px;
 
   text-align: center;
@@ -19,15 +19,21 @@ h1{
 
 p, ol, ul, td {
   font-family: "Open Sans", arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 18px;
+}
+
+i {
+  font-family: "Open Sans", arial, helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 12px;
 }
 
 pre {
   font-family: "Open Sans", arial, helvetica, sans-serif;
   background-color: #eee;
   padding: 10px;
-  font-size: 11px;
+  font-size: 15px;
 }
 
 div {
@@ -58,7 +64,7 @@ div {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
-    font-size: 12px;
+    font-size: 13px;
     margin: -7px;
     margin-bottom: 0px;
     background-color: #c00;

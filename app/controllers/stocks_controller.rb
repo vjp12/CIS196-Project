@@ -33,7 +33,7 @@ class StocksController < ApplicationController
 
   # GET /stocks/new
   def new
-    @stock = Stock.new 
+    @stock = Stock.new
   end
 
   # GET /stocks/1/edit
@@ -45,16 +45,22 @@ class StocksController < ApplicationController
   def create
     if member_signed_in? 
       @stock = Stock.new(stock_params)
-
-      respond_to do |format|
-        if @stock.save
-          format.html { redirect_to @stock, notice: 'Stock was successfully created.' }
-          format.json { render action: 'show', status: :created, location: @stock }
-        else
-          format.html { render action: 'new' }
-          format.json { render json: @stock.errors, status: :unprocessable_entity }
+      @testStockTicker = StockQuote::Stock.quote(@stock.ticker)
+      if @testStockTicker.failure?
+        @stock.destroy
+        respond_to do |format|
+          format.html { redirect_to new_stock_path, notice: 'Invalid ticker. Please try again.' }
         end
-      end    
+      else
+        respond_to do |format|
+          if @stock.save
+            format.html { redirect_to @stock, notice: 'Stock was successfully created.' }
+          else
+            format.html { render action: 'new' }
+            format.json { render json: @stock.errors, status: :unprocessable_entity }
+          end
+        end
+      end
     else
       redirect_to new_member_session_path
     end   

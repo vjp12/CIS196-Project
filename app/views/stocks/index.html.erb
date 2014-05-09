@@ -4,11 +4,9 @@
 <table>
   <thead>
     <tr>
-      <th>Ticker</th>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Internal Market Value</th>
-      <th>Investors</th>
+      <th>Ticker&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Name&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Price&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,12 +16,10 @@
   <tbody>
     <% @stocks.each do |stock| %>
       <tr>
-        <td><%= stock.ticker %></td>
-        <td><%= stock.name %></td>
-        <td><%= stock.price %></td>
-        <td><%= stock.market_value %></td>
-        <td><%= link_to 'Show', stock %></td>
-        <td><%= link_to 'Edit', edit_stock_path(stock) %></td>
+        <td><%= stock.ticker %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= stock.name %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= stock.price %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= link_to 'Show', stock %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -32,7 +28,7 @@
 
 <br>
 
-<%= link_to 'New Stock', new_stock_path %> |
+<%= link_to 'Add Stock', new_stock_path %> |
 <%= link_to 'Home', root_path %>  
 </div>
 </center>
