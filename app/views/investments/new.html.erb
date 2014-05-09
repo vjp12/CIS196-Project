@@ -28,10 +28,10 @@
     <% end %> 
   </div>
   <br>
-  <button class= "hide-btn"> 
+  <button class= "hide-btn3" type="button"> 
     Hide stock quotes
   </button>
-  <div class="dash-review">
+  <div class="dash-review5">
     <h3><strong>Quotes:</strong></h3>
     <% @stocks.each do |stock| %>
       <p><%= link_to stock.name, stock_path(stock.id) %>: <%= stock.price %></p>

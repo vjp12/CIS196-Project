@@ -1,13 +1,11 @@
-$(document).on("page:load", function(){
-	$(".hide-btn").click(function(){
-		if($(".dash-review").hasClass("hide")){
-			$(".dash-review").removeClass("hide");
-			$(".hide-btn").text("Hide stock quotes");
+$(function(){
+	$(".hide-btn3").click(function(){	
+		if($(".dash-review5").hasClass("hide")){
+			$(".dash-review5").removeClass("hide");
+			$(".hide-btn3").text("Hide stock quote");
 		} else {
-			$(".dash-review").addClass("hide");
-			$(".hide-btn").text("Show stock quotes");
+			$(".dash-review5").addClass("hide");
+			$(".hide-btn3").text("Show stock quote");
 		}
-		return false;
 	});
-	return false;
-});
+});	

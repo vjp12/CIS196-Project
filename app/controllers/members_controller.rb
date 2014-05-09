@@ -4,6 +4,8 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.all
+  end    
+
   end
 
   # GET /members/1
@@ -59,6 +61,7 @@ class MembersController < ApplicationController
   # DELETE /members/1
   # DELETE /members/1.json
   def destroy
+    redircet_to delete_member_investments_path(:id)
     @member.destroy
     respond_to do |format|
       format.html { redirect_to members_url }
