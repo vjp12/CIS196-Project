@@ -10,11 +10,6 @@
 	<div class="field">
 		<p>Comment</p>
 		<%= f.text_field :body%>
-	</div>
-		<div class="field">
-		<p>About Stock</p>
-		<%= f.collection_select :stock_id, Stock.all, :id, :name%>
-	</div>
 	<div class="field">
 		<%= f.hidden_field :member_id, :value => current_member.id %>
 	</div>
