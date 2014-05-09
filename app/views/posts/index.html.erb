@@ -5,11 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Text</th>
-      <th>Stock</th>
-      <th>Member</th>
+      <th>Title&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Body&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Stock&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Member&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th></th>
       <th></th>
       <th></th>
@@ -19,13 +18,12 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= post.text %></td>
-        <td><%= post.stock.name %></td>
-        <td><%= post.member.name %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= post.title %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= post.body %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= post.stock.name %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= post.member.name %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= link_to 'Show', post %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= link_to 'Edit', edit_post_path(post) %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -34,8 +32,7 @@
 
 <br>
 <p></p>
-<%= link_to 'New Post', new_post_path %> |
-<%= link_to 'Home', root_path %>  
+<%= link_to 'New Post', new_post_path %>
 </div>
 </div>
 </center>

@@ -66,15 +66,15 @@ class MembersController < ApplicationController
     end
   end
 
+  # place an order for an investment
   def order
-    @member = Member.find(params[:id])
-    @member.funds += :change
-    @member.update(member_params) 
-     respond_to do |format|
-        format.html { redirect_to Member.find(params[:id]), notice: 'Investments successfully updated' }
-        format.json { render action: 'show', status: :created, location: @investment }
-     end     
-  end  
+    Rails.logger.debug("debug::     Old funds : " + current_member.funds.to_s)
+    current_member.funds += BigDecimal(params[:change])
+    Rails.logger.debug("debug:: Updated funds 1: " + current_member.funds.to_s)
+    current_member.update(member_params)
+    Rails.logger.debug("debug:: Updated funds 2: " + current_member.funds.to_s)
+    redirect_to current_member, notice: 'The investment was successfully added.'
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

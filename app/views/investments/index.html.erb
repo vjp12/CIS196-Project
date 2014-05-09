@@ -4,9 +4,9 @@
 <table>
   <thead>
     <tr>
-      <th>Member</th>
-      <th>Stock</th>
-      <th>Share change</th>
+      <th>Member&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Stock&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Share change&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,12 +16,10 @@
   <tbody>
     <% @investments.each do |investment| %>
       <tr>
-        <td><%= investment.member.name %></td>
-        <td><%= investment.stock.name %></td>
-        <td><%= investment.share_change %></td>
-        <td><%= link_to 'Show', investment %></td>
-        <td><%= link_to 'Edit', edit_investment_path(investment) %></td>
-        <td><%= link_to 'Destroy', investment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= investment.member.name %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= investment.stock.name %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= investment.share_change %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= link_to 'Show', investment %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
       </tr>
     <% end %>
   </tbody>
@@ -29,8 +27,7 @@
 
 <br>
 
-<%= link_to 'New Investment', new_investment_path %> |
-<%= link_to 'Home', root_path %>  
+<%= link_to 'New Investment', new_investment_path %>
 </div>
 </div>
 </center>

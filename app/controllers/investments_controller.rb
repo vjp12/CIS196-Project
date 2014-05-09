@@ -38,11 +38,10 @@ class InvestmentsController < ApplicationController
     
       if @investment.save
         @stock_id = @investment.stock_id
-        @member_id = @investment.member_id
         @stock = Stock.where(id: @stock_id).first
         @price = StockQuote::Stock.quote(@stock.ticker).last_trade_price_only
-        @value = -@investment.share_change.to_f*@price
-        redirect_to order_path(@member_id, @value)
+        @value = -@investment.share_change.to_f * @price
+        redirect_to order_path(@value)
       else
         respond_to do |format|
           format.html { render action: 'new' }
@@ -72,11 +71,10 @@ class InvestmentsController < ApplicationController
   # DELETE /investments/1.json
   def destroy
     @stock_id = @investment.stock_id
-    @member_id = @investment.member_id
     @stock = Stock.where(id: @stock_id).first
     @price = StockQuote::Stock.quote(@stock.ticker).last_trade_price_only
-    @value = @investment.share_change*@price
-    redirect_to order_path(@member_id, @value)
+    @value = @investment.share_change * @price
+    redirect_to order_path(@value)
     @investment.destroy
   end
 
