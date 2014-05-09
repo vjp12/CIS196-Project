@@ -16,3 +16,16 @@
 		</ul>
 	</div>
 </div>
+<center>
+	<ul id="ticker01">
+		<% @stocks.each do |stock| %>
+			<li><span><%= stock.ticker %></span><a href="#"> <%= stock.price %></a></li>
+		<% end %>
+	</ul>
+</center>	
+
+<script type="text/javascript">
+$(function(){
+	$("ul#ticker01").liScroll();
+});
+</script>

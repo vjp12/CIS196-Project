@@ -6,6 +6,7 @@ gem 'devise', '3.0'
 
 #pulls stock datas
 gem 'stock_quote', '1.1.0'
+gem 'jquery-rails'
 
 # Mail
 group :development do
