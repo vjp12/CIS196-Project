@@ -2,27 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#title{
+#content-box{
+	clear:both;
+	height:118;
+	margin-top:200px;
 	position: relative;
+}
+
+#title{
 	width: 100%;
-	top: 255px;
-	padding-top: 10px;
+	height: 75px;
+	margin: 0px;
+	padding: 0px;
+	line-height: 75px;
 }
 
 #bar{
-	position: relative;
 	width: 100%;
-	top: 255px;
 	padding-left: auto;
 	padding-right: auto;
 	padding-top: 10px;
+	padding-bottom: 10px;
+	height: 43px;
 }
 
 #button_bar{
-	position: relative;
-	width: 10%;
-	top: 255px;
-	padding-left: 600px;
+	padding-left: auto;
 }
 
 .button1{
@@ -38,9 +43,18 @@
 	margin-right: 15px;
 	border: 1px solid #dcdcdc;
 	border-color: rgba(0,0,0,0.1);
-	color: #444;
 	font-size: 14px;
 	background: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+}
+
+.button1-text{
+	color: #444;
+	&:visited {
+		color: #666;
+	}
+	&:hover {
+		color: #1C49FF;
+	}
 }
 
 .button2{

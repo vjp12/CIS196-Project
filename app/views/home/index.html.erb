@@ -1,18 +1,17 @@
 <div class= "content">
-	<div class="content-box">
+	<div id="content-box">
 		<h1 id="title">Basic Trading Simulation</h1>
 		<ul id="bar">
 			<div class="button1">
-				<a href="/members/sign_up"> Sign Up</a>
+				<a href="/members/sign_up">
+					<div class="button1-text">Sign Up</div>
+				</a>
 			</div>
 			<div class="button1">
-				<%= link_to "Enter Stock", new_stock_path %>
-			</div>	
+				<%= link_to "Enter Stock", new_stock_path, class: "button1-text" %>
+			</div>
 			<div class="button1">
-				<%= link_to "Create Investment", new_investment_path %>
-			</div>	
-			<div class="button1">
-				<%= link_to "New Posts", new_post_path %>
+				<%= link_to "Create Investment", new_investment_path, class: "button1-text" %>
 			</div>	
 		</ul>
 	</div>

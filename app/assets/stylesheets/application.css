@@ -11,13 +11,17 @@
  *= require_self
  *= require_tree .
  */
+
+body{
+	/* overrided in scaffolds */
+}
+
 .nav{
 	position: fixed;
 	width: 100%;
 	top: 0px;
 	left: 0px;
 	height: 43px;
-	font: 16px Arial,sans-serif;
 	background: #f2f2f2;
 	border-bottom: 1px solid #e4e4e4;
 }
@@ -30,6 +34,15 @@
 	vertical-align: middle;
 	padding-top: 12px;
 	padding-bottom: 12px;
+	font-family: "Open Sans", arial, helvetica, sans-serif;
+	color: #404040;
+	font-size: 16px;
+}
+.nav-link:visited {
+	color: #000;
+}
+.nav-link:hover {
+	color: #1C49FF;
 }
 
 .sign_in{
@@ -47,9 +60,8 @@
 	background: -ms-linear-gradient(top,#4387fd,#4683ea);
 	border-radius: 4px;
 }
-
 .sign_in:hover{
-	border: 1px solid #000 !important;
+	border: 1px solid #0051DE !important;
 }
 
 .nav li{
@@ -89,7 +101,15 @@
 	padding-bottom: 14px;
 	color: #404040;
 	text-decoration: none;
+	font-family: "Open Sans", arial, helvetica, sans-serif;
 	float: left;
+	font-size: 16px;
+}
+.sub-link:visited {
+	color: #000;
+}
+.sub-link:hover {
+	color: #1C49FF;
 }
 
 #left-links{
@@ -102,13 +122,15 @@
 	margin-right: 2%;
 }
 
-body{
-	position: relative;
-	text-align: center;
-	margin-top: 100px;
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 13px;
-	line-height: 17px;
+a {
+  font-family: "Open Sans", arial, helvetica, sans-serif;
+  color: #0051DE;
+  &:visited {
+    color: #5884D1;
+  }
+  &:hover {
+    color: #1C49FF;
+  }
 }
 
 ul{
