@@ -1,19 +1,19 @@
 <center>
 <%= stylesheet_link_tag "investment" %>
 
-<h1>New investment</h1>
+<h1>Make a New Investment</h1>
+
 <%= form_for(@investment) do |f| %>
 	<div class="field">
-    <p>member</p>
-    <%= f.collection_select :member_id, Member.all, :id, :name%>
-  </div>
-  <div class="field">
-    <p>stock</p>
+    <p>Stock</p>
     <%= f.collection_select :stock_id, Stock.all, :id, :name %>
   </div>
   <div class="field"S>
     <%= f.label :share_change %><br>
     <%= f.number_field :share_change %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :member_id, :value => current_member.id %>
   </div>
   <div class="actions">
     <%= f.submit %>
@@ -31,8 +31,8 @@
   <button class= "hide-btn"> 
     Hide stock quotes
   </button>
-  <h3><strong>Quotes:</strong></h3>
   <div class="dash-review">
+    <h3><strong>Quotes:</strong></h3>
     <% @stocks.each do |stock| %>
       <p><%= link_to stock.name, stock_path(stock.id) %>: <%= stock.price %></p>
     <% end %> 
