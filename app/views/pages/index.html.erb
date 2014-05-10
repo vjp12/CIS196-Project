@@ -1,11 +1,12 @@
 <center>
 <div class="content_box">
 <h1>Leaderboard</h1>
+<h3>My Portfolio Value: <%= current_member.portfolio.market_value %></h3>
 <table>
   <thead>
     <tr>
       <th>Name&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Value</th>
+      <th>Portfolio Value</th>
       <th></th>
     </tr>
   </thead>
@@ -17,13 +18,13 @@
   <tbody>
   <% @members.each do |member| %>
       <div class="dash-review">
-	    <% if (prev_member.value != member.value) %>
+	    <% if (BigDecimal(prev_member.market_value.to_s) != BigDecimal(member.market_value.to_s)) %>
 		  <%  @i = @i + 1 %> 
 	    <% end %>	
 	    <% prev_member = member %>
         <tr>
-		  <td><h2><%= @i %>.  <%= link_to Member.where(id: member.id).take!.name, member_path(member.id)%>&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
-	  	  <td><h2><%= member.value %></h2></td>
+		  <td><h2><%= @i %>.  <%= link_to Member.where(id: member.member_id).take!.name, member_path(member.member_id)%>&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
+	  	  <td><h2><%= member.market_value %></h2></td>
 	    </tr>
     	</div>
    <% end %>

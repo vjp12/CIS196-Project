@@ -8,7 +8,6 @@
       <th>Name&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th>Email&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th>Funds&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Portfolio Value&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th></th>
       <th></th>
       <th></th>
@@ -21,7 +20,6 @@
         <td><%= member.name %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td><%= member.email %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td><%= BigDecimal(member.portfolio.try(:funds_remaining)).round(2) %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td><%= member.value %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td><%= link_to 'View Info', member %></td>
       </tr>
     <% end %>

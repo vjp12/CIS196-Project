@@ -17,11 +17,6 @@
     <%= BigDecimal(@member.portfolio.funds_remaining).round(2) %>
   </p>
 
-  <p>
-    <strong>Value:</strong>
-    <%= @member.value %>
-  </p>
-
   <%= link_to 'Edit', edit_member_registration_path(@member) %> |
   <%= link_to 'Back', members_path %>
 
