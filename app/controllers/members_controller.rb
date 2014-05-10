@@ -4,7 +4,15 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.all
-  end    
+    @members.each do |member|
+      @value = 0
+      @investments = Investment.where(params[member.id])
+      @investments.each  do |investment|
+        @stock_id = investment.stock_id
+        @stock = Stock.where(@stock_id).first
+        @value += investment.share_change * @stock.price
+      end
+    end    
 
   end
 
