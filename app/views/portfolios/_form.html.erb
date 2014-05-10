@@ -1,0 +1,37 @@
+<%= form_for(@portfolio) do |f| %>
+  <% if @portfolio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
+
+      <ul>
+      <% @portfolio.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :funds_remaining %><br>
+    <%= f.text_field :funds_remaining %>
+  </div>
+  <div class="field">
+    <%= f.label :market_value %><br>
+    <%= f.text_field :market_value %>
+  </div>
+  <div class="field">
+    <%= f.label :member_id %><br>
+    <%= f.text_field :nember_id %>
+  </div>
+  <div class="field">
+    <%= f.label :investments %><br>
+    <%= f.text_field :investments %>
+  </div>
+  <div class="field">
+    <%= f.label :stocks %><br>
+    <%= f.text_field :stocks %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
