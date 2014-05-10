@@ -19,9 +19,9 @@
       <tr>
         <td><%= stock.ticker %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td><%= stock.name %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td><%= stock.price %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= stock.price.round(2) %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td><%= link_to 'Show', stock %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td><%= link_to 'Destroy', stock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove', stock, method: :delete, data: { confirm: 'Are you sure you want to remove the stock?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509191717) do
+ActiveRecord::Schema.define(version: 20140509231018) do
 
   create_table "investments", force: true do |t|
     t.integer  "member_id"
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(version: 20140509191717) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "portfolios", force: true do |t|
+    t.string   "funds_remaining"
+    t.string   "market_value"
+    t.integer  "Members_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "member_id"
+  end
+
+  add_index "portfolios", ["Members_id"], name: "index_portfolios_on_Members_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"

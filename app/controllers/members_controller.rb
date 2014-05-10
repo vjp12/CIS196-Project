@@ -4,16 +4,7 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.all
-    @members.each do |member|
-      @value = 0
-      @investments = Investment.where(params[member.id])
-      @investments.each  do |investment|
-        @stock_id = investment.stock_id
-        @stock = Stock.where(@stock_id).first
-        @value += investment.share_change * @stock.price
-      end
-    end    
-
+    @portfolios = Portfolio.all
   end
 
   # GET /members/1
@@ -38,17 +29,13 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(member_params)
-
-    respond_to do |format|
-      if @member.save
-        UserMailer.send_signup_email(@member).deliver
-        #UserMailer.registration_confiramtion(@member).deliver
-        format.html { redirect_to @member, notice: 'Member was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @member }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @member.errors, status: :unprocessable_entity }
-      end
+    if @member.save
+      UserMailer.send_signup_email(@member).deliver
+      format.html { redirect_to @member, notice: 'Member account was successfully created.' }
+      format.json { render action: 'show', status: :created, location: @member }
+    else
+      format.html { render action: 'edit' }
+      format.json { render json: @member.errors, status: :unprocessable_entity }
     end
   end
 
@@ -75,16 +62,6 @@ class MembersController < ApplicationController
       format.html { redirect_to members_url }
       format.json { head :no_content }
     end
-  end
-
-  # place an order for an investment
-  def order
-    Rails.logger.debug("debug::     Old funds : " + current_member.funds.to_s)
-    current_member.funds += BigDecimal(params[:change])
-    Rails.logger.debug("debug:: Updated funds 1: " + current_member.funds.to_s)
-    current_member.update(member_params)
-    Rails.logger.debug("debug:: Updated funds 2: " + current_member.funds.to_s)
-    redirect_to current_member, notice: 'The investment was successfully added.'
   end
 
   private

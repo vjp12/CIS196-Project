@@ -39,9 +39,10 @@ class InvestmentsController < ApplicationController
       if @investment.save
         @stock_id = @investment.stock_id
         @stock = Stock.where(id: @stock_id).first
-        @price = StockQuote::Stock.quote(@stock.ticker).last_trade_price_only
-        @value = -@investment.share_change.to_f * @price
-        redirect_to order_path(@value)
+        negate = BigDecimal("-1")
+        price = StockQuote::Stock.quote(@stock.ticker).last_trade_price_only
+        value = BigDecimal(@investment.share_change.to_s) * negate * price
+        redirect_to order_path(value.round.to_s, value.abs().frac().to_s[2..-1])
       else
         respond_to do |format|
           format.html { render action: 'new' }
@@ -72,10 +73,10 @@ class InvestmentsController < ApplicationController
   def destroy
     @stock_id = @investment.stock_id
     @stock = Stock.where(id: @stock_id).first
-    @price = StockQuote::Stock.quote(@stock.ticker).last_trade_price_only
-    @value = @investment.share_change * @price
-    redirect_to order_path(@value)
+    price = StockQuote::Stock.quote(@stock.ticker).last_trade_price_only
+    value = BigDecimal(@investment.share_change.to_s) * price
     @investment.destroy
+    redirect_to order_path(value.round.to_s, value.abs().frac().to_s[2..-1])
   end
 
   def delete_member_investments
@@ -87,7 +88,8 @@ class InvestmentsController < ApplicationController
       format.html { redirect_to stocks_url, notice: 'Stock was successfully deleted.' }
       format.json { head :no_content }
     end
-  end  
+  end
+
   def delete_stock_investments
     @investments = Investment.where(stock_id: :id)
     @investments.each  do |x|
