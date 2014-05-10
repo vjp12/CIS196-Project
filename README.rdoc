@@ -1,11 +1,7 @@
 == README
-http://secret-fjord-1158.herokuapp.com/
 
-I implemented show-hide functionality for a list of stock quotes when making a new investment. My toughest challenge was that i did not implement a return false option in my javascript code, so tha that the button defaulted to submitting the application instead of toggling the list.
+http://still-retreat-7443.herokuapp.com/
 
-Updates:
-1.) Values and funds are now visable
-2.) Leaderboard allows for more than teo people to occupy the same rank if their values are equal
-3.) Member editing has migrated to the devise
+Please see "CIS-196-Final-Project-Readme.pdf"
 
 <tt>rake doc:app</tt>.
