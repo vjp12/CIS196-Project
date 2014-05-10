@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509231018) do
+ActiveRecord::Schema.define(version: 20140510013107) do
 
   create_table "investments", force: true do |t|
     t.integer  "member_id"
     t.integer  "stock_id"
-    t.decimal  "share_change"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "share_change"
   end
 
   add_index "investments", ["member_id"], name: "index_investments_on_member_id"

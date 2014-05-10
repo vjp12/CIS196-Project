@@ -14,7 +14,7 @@
 
   <p>
     <strong>Funds:</strong>
-    <%= @member.funds %>
+    <%= BigDecimal(@member.portfolio.funds_remaining).round(2) %>
   </p>
 
   <p>
@@ -31,8 +31,8 @@
   <div class="dash-review">
     <% @i = 1 %> 
     <% @investments.each do |investment| %>
-      <h2><%= @i %>) stock: <%= link_to Stock.where(id: investment.stock_id).take!.name, investment_path(investment.id) %></h2>
-      <p>share change: <%= investment.share_change %></p>
+      <h2><%= @i %>) Stock: <%= link_to Stock.where(id: investment.stock_id).take!.name, investment_path(investment.id) %></h2>
+      <p>Share change: <%= investment.share_change %></p>
       <% @i += 1 %>
     <%end%>
   </div>

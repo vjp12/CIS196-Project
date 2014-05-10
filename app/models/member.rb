@@ -12,7 +12,7 @@ class Member < ActiveRecord::Base
   def create_portfolio
     portfolio = Portfolio.new
     portfolio.member = self
-    portfolio.funds_remaining = BigDecimal("1000000").to_s
+    portfolio.funds_remaining = BigDecimal("100000").to_s
     portfolio.market_value = BigDecimal("0").to_s
     if portfolio.save
       Rails.logger.debug("debug:== Portfolio saved: #{portfolio}")

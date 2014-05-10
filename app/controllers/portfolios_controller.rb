@@ -5,6 +5,7 @@ class PortfoliosController < ApplicationController
   def order
     portfolio = current_member.portfolio
     new_order = BigDecimal(params[:dollar] + "." + params[:decimal])
+    Rails.logger.debug("portfolios deebug: " + new_order.to_s)
     new_funds = BigDecimal(portfolio.funds_remaining) + new_order
     portfolio.funds_remaining = new_funds.to_s
     # portfolio.funds_remaining = reset
@@ -20,7 +21,7 @@ class PortfoliosController < ApplicationController
   end
 
   def reset
-    "1000000"
+    "100000"
   end
 
   private

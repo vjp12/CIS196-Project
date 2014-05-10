@@ -42,7 +42,8 @@ class InvestmentsController < ApplicationController
         negate = BigDecimal("-1")
         price = StockQuote::Stock.quote(@stock.ticker).last_trade_price_only
         value = BigDecimal(@investment.share_change.to_s) * negate * price
-        redirect_to order_path(value.round.to_s, value.abs().frac().to_s[2..-1])
+        Rails.logger.debug("investments deebug: " + value.to_s)
+        redirect_to order_path(value.truncate.to_s, value.abs().frac().to_s[2..-1])
       else
         respond_to do |format|
           format.html { render action: 'new' }
@@ -80,7 +81,7 @@ class InvestmentsController < ApplicationController
   end
 
   def delete_member_investments
-    @investments = Investment.where(member_id: :id)
+    @investments = Investment.where("member_id = ?", params[:id])
     @investments.each  do |x|
       x.destroy
     end 
@@ -91,7 +92,7 @@ class InvestmentsController < ApplicationController
   end
 
   def delete_stock_investments
-    @investments = Investment.where(stock_id: :id)
+    @investments = Investment.where("stock_id = ?", params[:id])
     @investments.each  do |x|
       x.destroy
     end  
