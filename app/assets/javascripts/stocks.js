@@ -1,5 +1,3 @@
-
-
 $(function(){
 	$(".dash-review").addClass("hide");
 	$(".dash-review2").addClass("hide");
