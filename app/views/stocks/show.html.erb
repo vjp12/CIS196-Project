@@ -1,51 +1,56 @@
+
+
 <h1><%= @stock.name %></h1>
-<br>
 <img src= <%= @url %> />
+
 <center>
-<div class="content-box">
-  <p id="notice"><%= notice %></p>
+  <div class="float">
+    <button class= "hide-btn"> Show my investments </button>
+    <div class="dash-review3">
+      <h4><strong>My Net Investment:</strong></h4>
+        <h5>net share change: <%= @net_investment %></h5>  
 
-  <p>
-    <strong>Ticker:</strong>
-    <%= @stock.ticker %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= @stock.price %>
-  </p>
-
-  <%= link_to 'Back', stocks_path %>
-
-  <br>
-  <br>
-  <button class= "hide-btn"> Show my investments </button>
-  <div class="dash-review3">
-    <h4><strong>My Net Investment:</strong></h4>
-      <h5>net share change: <%= @net_investment %></h5>  
-
-    <h4><strong>My Investments:</strong></h4>
+      <h4><strong>My Investments:</strong></h4>
+    </div>  
+    <div class="dash-review">
+      <% @i = 1 %>  
+      <% @my_investments.each do |my_investment| %>
+        <h5><%= @i %>) share change: <%= my_investment.share_change %></h5>
+        <% @i += 1 %>  
+      <%end%> 
+    </div>
   </div>  
-  <div class="dash-review">
-    <% @i = 1 %>  
-    <% @my_investments.each do |my_investment| %>
-      <h5><%= @i %>) share change: <%= my_investment.share_change %></h5>
-      <% @i += 1 %>  
-    <%end%> 
+
+  <div class="float"> 
+    <center> 
+    <p id="notice"><%= notice %></p>
+    <p>
+      <strong>Ticker:</strong>
+      <%= @stock.ticker %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= @stock.price %>
+    </p>
+
+    <%= link_to 'Back', stocks_path %>
+    </center>  
   </div>
 
-  <br>
-  <button class= "hide-btn2"> Show Latest Investments </button>
-  <div class="dash-review4">
-    <h3><strong>Latest Investments:</strong></h3>
+
+  <div class="float">
+    <button class= "hide-btn2"> Show Latest Investments </button>
+    <div class="dash-review4">
+      <h3><strong>Latest Investments:</strong></h3>
+    </div>  
+    <div class="dash-review2">  
+      <% @i = 1 %> 
+      <% @investments.each do |investment| %>
+        <h4><%= link_to Member.where(id: investment.member_id).take!.name, investment_path(investment.member_id) %> </h4>
+        <h5><%= @i %>) share change: <%= investment.share_change %></h5>
+        <% @i += 1 %>  
+      <%end%> 
+    </div>
   </div>  
-  <div class="dash-review2">  
-    <% @i = 1 %> 
-    <% @investments.each do |investment| %>
-      <h4><%= link_to Member.where(id: investment.member_id).take!.name, investment_path(investment.member_id) %> </h4>
-      <h5><%= @i %>) share change: <%= investment.share_change %></h5>
-      <% @i += 1 %>  
-    <%end%> 
-  </div>
-</div>
 </center>

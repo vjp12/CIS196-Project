@@ -9,26 +9,22 @@
 .dash-review{
 	position: relative;
 	margin-top: -10px;
-	margin-left: auto;
-	margin-right: auto;
-	height: 90px;
+	width: 240px;
+	height: 194px;
 	overflow-y: auto;
 }
 
 .dash-review2{
 	position: relative;
 	margin-top: -10px;
-	margin-left: auto;
-	margin-right: auto;
-	height: 100px;
+	width: 240px;
+	height: 276px;
 	overflow-y: auto;
 }
 
-.content-box{
+.float{
 	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	height: 684px;
-	bottom: 44px;
-	overflow-y: auto;
+	float: left;
+	width: 33%;
+	margin-top: -25px;
 }
