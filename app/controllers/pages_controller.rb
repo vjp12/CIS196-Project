@@ -3,8 +3,8 @@ class PagesController < ApplicationController
     ##redirect_to refresh_stocks_path
 
     portfolios = Portfolio.all   
-	portfolios.each do |portfolio|
-	  value = BigDecimal("0")
+	  portfolios.each do |portfolio|
+	   value = BigDecimal("0")
       investments = Investment.where(member_id: portfolio.member.id)
       investments.each  do |investment|
         stock_id = investment.stock_id
