@@ -11,24 +11,23 @@
     </tr>
   </thead>
 
-<% if !@members.empty? %>
-	<% prev_member = @members[0] %>
-<% end %>
-
-  <tbody>
-  <% @members.each do |member| %>
-      <div class="dash-review">
-	    <% if (BigDecimal(prev_member.market_value.to_s) != BigDecimal(member.market_value.to_s)) %>
-		  <%  @i = @i + 1 %> 
-	    <% end %>	
-	    <% prev_member = member %>
-        <tr>
-		  <td><h2><%= @i %>.  <%= link_to Member.where(id: member.member_id).take!.name, member_path(member.member_id)%>&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
-	  	  <td><h2><%= member.market_value %></h2></td>
-	    </tr>
-    	</div>
-   <% end %>
- </tbody>
+  <% if !@members.empty? %>
+  	<% prev_member = @members[0] %>
+    <tbody>
+      <% @members.each do |member| %>
+          <div class="dash-review">
+    	    <% if (BigDecimal(prev_member.market_value.to_s) != BigDecimal(member.market_value.to_s)) %>
+    		  <%  @i = @i + 1 %> 
+    	    <% end %>	
+    	    <% prev_member = member %>
+            <tr>
+    		  <td><h2><%= @i %>.  <%= link_to Member.where(id: member.member_id).take!.name, member_path(member.member_id)%>&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
+    	  	  <td><h2><%= member.market_value %></h2></td>
+    	    </tr>
+        	</div>
+       <% end %>
+   </tbody>
+  <% end %> 
 </table>
 </div>
 </center>
